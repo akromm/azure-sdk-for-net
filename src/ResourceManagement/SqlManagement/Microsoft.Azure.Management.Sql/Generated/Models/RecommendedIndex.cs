@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the RecommendedIndex class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="action">Gets the proposed index action. We suggest
@@ -54,8 +54,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// recommended index action.</param>
         /// <param name="reportedImpact">Gets the values reported after index
         /// action is complete.</param>
-        public RecommendedIndex(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string action = default(string), string state = default(string), System.DateTime? created = default(System.DateTime?), System.DateTime? lastModified = default(System.DateTime?), string indexType = default(string), string schema = default(string), string table = default(string), System.Collections.Generic.IList<string> columns = default(System.Collections.Generic.IList<string>), System.Collections.Generic.IList<string> includedColumns = default(System.Collections.Generic.IList<string>), string indexScript = default(string), System.Collections.Generic.IList<OperationImpact> estimatedImpact = default(System.Collections.Generic.IList<OperationImpact>), System.Collections.Generic.IList<OperationImpact> reportedImpact = default(System.Collections.Generic.IList<OperationImpact>))
-            : base(location, id, name, type, tags)
+        public RecommendedIndex(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string action = default(string), string state = default(string), System.DateTime? created = default(System.DateTime?), System.DateTime? lastModified = default(System.DateTime?), string indexType = default(string), string schema = default(string), string table = default(string), System.Collections.Generic.IList<string> columns = default(System.Collections.Generic.IList<string>), System.Collections.Generic.IList<string> includedColumns = default(System.Collections.Generic.IList<string>), string indexScript = default(string), System.Collections.Generic.IList<OperationImpact> estimatedImpact = default(System.Collections.Generic.IList<OperationImpact>), System.Collections.Generic.IList<OperationImpact> reportedImpact = default(System.Collections.Generic.IList<OperationImpact>))
+            : base(location, name, id, type, tags)
         {
             Action = action;
             State = state;

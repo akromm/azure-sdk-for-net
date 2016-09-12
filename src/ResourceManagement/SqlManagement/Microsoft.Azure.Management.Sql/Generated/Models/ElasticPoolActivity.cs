@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the ElasticPoolActivity class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="endTime">Gets the time the operation finished.</param>
@@ -57,8 +57,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// started.</param>
         /// <param name="state">Gets the current state of the
         /// operation.</param>
-        public ElasticPoolActivity(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? endTime = default(System.DateTime?), int? errorCode = default(int?), string errorMessage = default(string), int? errorSeverity = default(int?), string operation = default(string), string operationId = default(string), int? percentComplete = default(int?), int? requestedDatabaseDtuMax = default(int?), int? requestedDatabaseDtuMin = default(int?), int? requestedDtu = default(int?), string requestedElasticPoolName = default(string), long? requestedStorageLimitInGB = default(long?), string elasticPoolName = default(string), string serverName = default(string), System.DateTime? startTime = default(System.DateTime?), string state = default(string))
-            : base(location, id, name, type, tags)
+        public ElasticPoolActivity(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? endTime = default(System.DateTime?), int? errorCode = default(int?), string errorMessage = default(string), int? errorSeverity = default(int?), string operation = default(string), string operationId = default(string), int? percentComplete = default(int?), int? requestedDatabaseDtuMax = default(int?), int? requestedDatabaseDtuMin = default(int?), int? requestedDtu = default(int?), string requestedElasticPoolName = default(string), long? requestedStorageLimitInGB = default(long?), string elasticPoolName = default(string), string serverName = default(string), System.DateTime? startTime = default(System.DateTime?), string state = default(string))
+            : base(location, name, id, type, tags)
         {
             EndTime = endTime;
             ErrorCode = errorCode;

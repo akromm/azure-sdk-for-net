@@ -14,7 +14,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     /// Represents an Azure SQL Database restorable deleted database.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
-    public partial class DeletedDatabaseBackup : Resource
+    public partial class DeletedDatabaseBackup : SubResource
     {
         /// <summary>
         /// Initializes a new instance of the DeletedDatabaseBackup class.
@@ -24,11 +24,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the DeletedDatabaseBackup class.
         /// </summary>
-        /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
-        /// <param name="type">Resource type</param>
-        /// <param name="tags">Resource tags</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="databaseName">Gets the Azure SQL Database
         /// name.</param>
         /// <param name="creationDate">Gets the creation date of the Azure SQL
@@ -47,8 +44,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Objective of the Azure SQL Database.</param>
         /// <param name="elasticPoolName">Gets the name of the Azure SQL
         /// Elastic Pool the database is in.</param>
-        public DeletedDatabaseBackup(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string databaseName = default(string), System.DateTime? creationDate = default(System.DateTime?), System.DateTime? deletionDate = default(System.DateTime?), System.DateTime? earliestRestoreDate = default(System.DateTime?), string edition = default(string), long? maxSizeBytes = default(long?), string serviceLevelObjective = default(string), string elasticPoolName = default(string))
-            : base(location, id, name, type, tags)
+        public DeletedDatabaseBackup(string name = default(string), string id = default(string), string databaseName = default(string), System.DateTime? creationDate = default(System.DateTime?), System.DateTime? deletionDate = default(System.DateTime?), System.DateTime? earliestRestoreDate = default(System.DateTime?), string edition = default(string), long? maxSizeBytes = default(long?), string serviceLevelObjective = default(string), string elasticPoolName = default(string))
+            : base(name, id)
         {
             DatabaseName = databaseName;
             CreationDate = creationDate;
@@ -110,15 +107,5 @@ namespace Microsoft.Azure.Management.Sql.Models
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.elasticPoolName")]
         public string ElasticPoolName { get; private set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public override void Validate()
-        {
-            base.Validate();
-        }
     }
 }

@@ -10,13 +10,13 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
 
     /// <summary>
-    /// Defines values for DatabaseCreateMode.
+    /// Defines values for MaxSizeUnits.
     /// </summary>
-    public static class DatabaseCreateMode
+    public static class MaxSizeUnits
     {
-        public const string Default = "Default";
-        public const string Copy = "Copy";
-        public const string Secondary = "Secondary";
-        public const string NonReadableSecondary = "NonReadableSecondary";
+        public const string Megabytes = "Megabytes";
+        public const string Gigabytes = "Gigabytes";
+        public const string Terabytes = "Terabytes";
+        public const string Petabytes = "Petabytes";
     }
 }

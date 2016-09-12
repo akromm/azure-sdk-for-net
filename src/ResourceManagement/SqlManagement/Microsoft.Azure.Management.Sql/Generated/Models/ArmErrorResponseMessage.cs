@@ -11,7 +11,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     using System.Linq;
 
     /// <summary>
-    /// Properties of an Azure SQL Database job account.
+    /// Represents the error response details
     /// </summary>
     public partial class ArmErrorResponseMessage
     {

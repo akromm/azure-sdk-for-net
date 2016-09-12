@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the Table class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="tableType">Gets the type of Azure SQL Database table.
@@ -34,8 +34,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="columns">Gets the columns from this table.</param>
         /// <param name="recommendedIndexes">Gets the recommended indices for
         /// this table.</param>
-        public Table(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string tableType = default(string), System.Collections.Generic.IList<Column> columns = default(System.Collections.Generic.IList<Column>), System.Collections.Generic.IList<RecommendedIndex> recommendedIndexes = default(System.Collections.Generic.IList<RecommendedIndex>))
-            : base(location, id, name, type, tags)
+        public Table(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string tableType = default(string), System.Collections.Generic.IList<Column> columns = default(System.Collections.Generic.IList<Column>), System.Collections.Generic.IList<RecommendedIndex> recommendedIndexes = default(System.Collections.Generic.IList<RecommendedIndex>))
+            : base(location, name, id, type, tags)
         {
             TableType = tableType;
             Columns = columns;

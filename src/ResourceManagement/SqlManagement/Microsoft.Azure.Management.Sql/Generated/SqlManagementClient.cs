@@ -46,16 +46,6 @@ namespace Microsoft.Azure.Management.Sql
         public string SubscriptionId { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group to which the resource belongs.
-        /// </summary>
-        public string ResourceGroupName { get; set; }
-
-        /// <summary>
-        /// The name of the Azure SQL Server
-        /// </summary>
-        public string ServerName { get; set; }
-
-        /// <summary>
         /// Gets or sets the preferred language for the response.
         /// </summary>
         public string AcceptLanguage { get; set; }
@@ -78,9 +68,14 @@ namespace Microsoft.Azure.Management.Sql
         public virtual IJobAccountsOperations JobAccounts { get; private set; }
 
         /// <summary>
-        /// Gets the IServersOperations.
+        /// Gets the IJobsOperations.
         /// </summary>
-        public virtual IServersOperations Servers { get; private set; }
+        public virtual IJobsOperations Jobs { get; private set; }
+
+        /// <summary>
+        /// Gets the IEngineAuditRecordsOperations.
+        /// </summary>
+        public virtual IEngineAuditRecordsOperations EngineAuditRecords { get; private set; }
 
         /// <summary>
         /// Gets the IDatabasesOperations.
@@ -88,9 +83,34 @@ namespace Microsoft.Azure.Management.Sql
         public virtual IDatabasesOperations Databases { get; private set; }
 
         /// <summary>
+        /// Gets the IServersOperations.
+        /// </summary>
+        public virtual IServersOperations Servers { get; private set; }
+
+        /// <summary>
         /// Gets the IElasticPoolsOperations.
         /// </summary>
         public virtual IElasticPoolsOperations ElasticPools { get; private set; }
+
+        /// <summary>
+        /// Gets the IRecommendedElasticPoolsOperations.
+        /// </summary>
+        public virtual IRecommendedElasticPoolsOperations RecommendedElasticPools { get; private set; }
+
+        /// <summary>
+        /// Gets the IAuditingPolicyOperations.
+        /// </summary>
+        public virtual IAuditingPolicyOperations AuditingPolicy { get; private set; }
+
+        /// <summary>
+        /// Gets the IDataMaskingOperations.
+        /// </summary>
+        public virtual IDataMaskingOperations DataMasking { get; private set; }
+
+        /// <summary>
+        /// Gets the ICapabilitiesOperations.
+        /// </summary>
+        public virtual ICapabilitiesOperations Capabilities { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the SqlManagementClient class.
@@ -294,9 +314,15 @@ namespace Microsoft.Azure.Management.Sql
         private void Initialize()
         {
             this.JobAccounts = new JobAccountsOperations(this);
-            this.Servers = new ServersOperations(this);
+            this.Jobs = new JobsOperations(this);
+            this.EngineAuditRecords = new EngineAuditRecordsOperations(this);
             this.Databases = new DatabasesOperations(this);
+            this.Servers = new ServersOperations(this);
             this.ElasticPools = new ElasticPoolsOperations(this);
+            this.RecommendedElasticPools = new RecommendedElasticPoolsOperations(this);
+            this.AuditingPolicy = new AuditingPolicyOperations(this);
+            this.DataMasking = new DataMaskingOperations(this);
+            this.Capabilities = new CapabilitiesOperations(this);
             this.BaseUri = new System.Uri("https://management.azure.com");
             this.AcceptLanguage = "en-US";
             this.LongRunningOperationRetryTimeout = 30;

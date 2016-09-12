@@ -24,7 +24,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the JobAccountResource class.
         /// </summary>
-        public JobAccountResource(string id = default(string), string name = default(string), string type = default(string), string location = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string databaseId = default(string), string serviceLevelObjectiveId = default(string))
+        public JobAccountResource(string databaseId, string id = default(string), string name = default(string), string type = default(string), string location = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>))
         {
             Id = id;
             Name = name;
@@ -32,7 +32,6 @@ namespace Microsoft.Azure.Management.Sql.Models
             Location = location;
             Tags = tags;
             DatabaseId = databaseId;
-            ServiceLevelObjectiveId = serviceLevelObjectiveId;
         }
 
         /// <summary>
@@ -66,9 +65,17 @@ namespace Microsoft.Azure.Management.Sql.Models
         public string DatabaseId { get; set; }
 
         /// <summary>
+        /// Validate the object.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.serviceLevelObjectiveId")]
-        public string ServiceLevelObjectiveId { get; set; }
-
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (DatabaseId == null)
+            {
+                throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.CannotBeNull, "DatabaseId");
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     using System.Linq;
 
     /// <summary>
-    /// Standard ARM error response details
+    /// Details about a specific error
     /// </summary>
     public partial class ArmErrorResponseErrorDetail
     {
@@ -35,17 +35,17 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "code")]
-        public string Code { get; set; }
+        public string Code { get; private set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "message")]
-        public string Message { get; set; }
+        public string Message { get; private set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "target")]
-        public string Target { get; set; }
+        public string Target { get; private set; }
 
     }
 }

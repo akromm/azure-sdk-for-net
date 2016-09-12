@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the Database class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="collation">Gets the collation of the Azure SQL
@@ -62,15 +62,19 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Database.</param>
         /// <param name="elasticPoolName">Gets the name of the Azure SQL
         /// Elastic Pool the database is in.</param>
+        /// <param name="defaultSecondaryLocation">Gets the default secondary
+        /// region for this database.</param>
         /// <param name="serviceTierAdvisors">Gets the list of service tier
         /// advisors for this database. Expanded property</param>
         /// <param name="upgradeHint">Gets the upgrade hint for this
         /// database.</param>
         /// <param name="schemas">Gets the schemas from this database.</param>
-        /// <param name="defaultSecondaryLocation">Gets the default secondary
-        /// region for this database.</param>
-        public Database(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string collation = default(string), System.DateTime? creationDate = default(System.DateTime?), string currentServiceObjectiveId = default(string), string databaseId = default(string), System.DateTime? earliestRestoreDate = default(System.DateTime?), string edition = default(string), long? maxSizeBytes = default(long?), string requestedServiceObjectiveId = default(string), string requestedServiceObjectiveName = default(string), string serviceLevelObjective = default(string), string status = default(string), string elasticPoolName = default(string), System.Collections.Generic.IList<ServiceTierAdvisor> serviceTierAdvisors = default(System.Collections.Generic.IList<ServiceTierAdvisor>), UpgradeHint upgradeHint = default(UpgradeHint), System.Collections.Generic.IList<Schema> schemas = default(System.Collections.Generic.IList<Schema>), string defaultSecondaryLocation = default(string))
-            : base(location, id, name, type, tags)
+        /// <param name="transparentDataEncryption">Gets the transparent data
+        /// encryption info for this database.</param>
+        /// <param name="recommendedIndex">Gets the recommended indices for
+        /// this database.</param>
+        public Database(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string collation = default(string), System.DateTime? creationDate = default(System.DateTime?), System.Guid? currentServiceObjectiveId = default(System.Guid?), string databaseId = default(string), System.DateTime? earliestRestoreDate = default(System.DateTime?), string edition = default(string), long? maxSizeBytes = default(long?), System.Guid? requestedServiceObjectiveId = default(System.Guid?), string requestedServiceObjectiveName = default(string), System.Guid? serviceLevelObjective = default(System.Guid?), string status = default(string), string elasticPoolName = default(string), string defaultSecondaryLocation = default(string), System.Collections.Generic.IList<ServiceTierAdvisor> serviceTierAdvisors = default(System.Collections.Generic.IList<ServiceTierAdvisor>), UpgradeHint upgradeHint = default(UpgradeHint), System.Collections.Generic.IList<Schema> schemas = default(System.Collections.Generic.IList<Schema>), System.Collections.Generic.IList<TransparentDataEncryption> transparentDataEncryption = default(System.Collections.Generic.IList<TransparentDataEncryption>), System.Collections.Generic.IList<RecommendedIndex> recommendedIndex = default(System.Collections.Generic.IList<RecommendedIndex>))
+            : base(location, name, id, type, tags)
         {
             Collation = collation;
             CreationDate = creationDate;
@@ -84,17 +88,19 @@ namespace Microsoft.Azure.Management.Sql.Models
             ServiceLevelObjective = serviceLevelObjective;
             Status = status;
             ElasticPoolName = elasticPoolName;
+            DefaultSecondaryLocation = defaultSecondaryLocation;
             ServiceTierAdvisors = serviceTierAdvisors;
             UpgradeHint = upgradeHint;
             Schemas = schemas;
-            DefaultSecondaryLocation = defaultSecondaryLocation;
+            TransparentDataEncryption = transparentDataEncryption;
+            RecommendedIndex = recommendedIndex;
         }
 
         /// <summary>
         /// Gets the collation of the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.collation")]
-        public string Collation { get; private set; }
+        public string Collation { get; set; }
 
         /// <summary>
         /// Gets the creation date of the Azure SQL Database.
@@ -108,7 +114,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// currently active.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.currentServiceObjectiveId")]
-        public string CurrentServiceObjectiveId { get; private set; }
+        public System.Guid? CurrentServiceObjectiveId { get; private set; }
 
         /// <summary>
         /// Gets the Id of the Azure SQL Database.
@@ -131,13 +137,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// 'Free', 'Stretch', 'DataWarehouse'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.edition")]
-        public string Edition { get; private set; }
+        public string Edition { get; set; }
 
         /// <summary>
         /// Gets the max size of the Azure SQL Database expressed in bytes.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.maxSizeBytes")]
-        public long? MaxSizeBytes { get; private set; }
+        public long? MaxSizeBytes { get; set; }
 
         /// <summary>
         /// Gets the configured Service Level Objective Id of the Azure SQL
@@ -145,7 +151,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// applied to the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.requestedServiceObjectiveId")]
-        public string RequestedServiceObjectiveId { get; private set; }
+        public System.Guid? RequestedServiceObjectiveId { get; set; }
 
         /// <summary>
         /// Gets the name of the configured Service Level Objective of the
@@ -153,13 +159,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// being applied to the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.requestedServiceObjectiveName")]
-        public string RequestedServiceObjectiveName { get; private set; }
+        public string RequestedServiceObjectiveName { get; set; }
 
         /// <summary>
         /// Gets the Service Level Objective of the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.serviceLevelObjective")]
-        public string ServiceLevelObjective { get; private set; }
+        public System.Guid? ServiceLevelObjective { get; private set; }
 
         /// <summary>
         /// Gets the status of the Azure SQL Database.
@@ -171,7 +177,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Gets the name of the Azure SQL Elastic Pool the database is in.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.elasticPoolName")]
-        public string ElasticPoolName { get; private set; }
+        public string ElasticPoolName { get; set; }
+
+        /// <summary>
+        /// Gets the default secondary region for this database.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.defaultSecondaryLocation")]
+        public string DefaultSecondaryLocation { get; private set; }
 
         /// <summary>
         /// Gets the list of service tier advisors for this database. Expanded
@@ -193,10 +205,16 @@ namespace Microsoft.Azure.Management.Sql.Models
         public System.Collections.Generic.IList<Schema> Schemas { get; private set; }
 
         /// <summary>
-        /// Gets the default secondary region for this database.
+        /// Gets the transparent data encryption info for this database.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.defaultSecondaryLocation")]
-        public string DefaultSecondaryLocation { get; private set; }
+        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.transparentDataEncryption")]
+        public System.Collections.Generic.IList<TransparentDataEncryption> TransparentDataEncryption { get; private set; }
+
+        /// <summary>
+        /// Gets the recommended indices for this database.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.recommendedIndex")]
+        public System.Collections.Generic.IList<RecommendedIndex> RecommendedIndex { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -207,9 +225,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         public override void Validate()
         {
             base.Validate();
-            if (this.ServiceTierAdvisors != null)
+            if (this.UpgradeHint != null)
             {
-                foreach (var element in this.ServiceTierAdvisors)
+                this.UpgradeHint.Validate();
+            }
+            if (this.Schemas != null)
+            {
+                foreach (var element in this.Schemas)
                 {
                     if (element != null)
                     {
@@ -217,13 +239,9 @@ namespace Microsoft.Azure.Management.Sql.Models
                     }
                 }
             }
-            if (this.UpgradeHint != null)
+            if (this.RecommendedIndex != null)
             {
-                this.UpgradeHint.Validate();
-            }
-            if (this.Schemas != null)
-            {
-                foreach (var element1 in this.Schemas)
+                foreach (var element1 in this.RecommendedIndex)
                 {
                     if (element1 != null)
                     {

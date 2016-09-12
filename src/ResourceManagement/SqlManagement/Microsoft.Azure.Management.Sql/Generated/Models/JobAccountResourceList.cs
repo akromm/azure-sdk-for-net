@@ -23,21 +23,15 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the JobAccountResourceList class.
         /// </summary>
-        public JobAccountResourceList(System.Collections.Generic.IList<JobAccountResource> value = default(System.Collections.Generic.IList<JobAccountResource>), string nextLink = default(string))
+        public JobAccountResourceList(System.Collections.Generic.IList<JobAccountResource> value = default(System.Collections.Generic.IList<JobAccountResource>))
         {
             Value = value;
-            NextLink = nextLink;
         }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "value")]
         public System.Collections.Generic.IList<JobAccountResource> Value { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "nextLink")]
-        public string NextLink { get; set; }
 
     }
 }

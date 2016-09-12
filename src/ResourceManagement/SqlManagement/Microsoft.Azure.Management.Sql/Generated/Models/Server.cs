@@ -25,19 +25,20 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the Server class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="fullyQualifiedDomainName">Gets the fully qualified
-        /// domain name of the server.</param>
-        /// <param name="version">Gets the version of the server.</param>
-        /// <param name="administratorLogin">Gets administrator username for
-        /// the server.</param>
-        /// <param name="administratorLoginPassword">Gets the administrator
-        /// login password.</param>
-        public Server(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string fullyQualifiedDomainName = default(string), string version = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string))
-            : base(location, id, name, type, tags)
+        /// <param name="fullyQualifiedDomainName">The fully qualified domain
+        /// name of the server.</param>
+        /// <param name="version">The version of the server.</param>
+        /// <param name="administratorLogin">Administrator username for the
+        /// server. Can only be specified when the server is being
+        /// created.</param>
+        /// <param name="administratorLoginPassword">The administrator login
+        /// password.</param>
+        public Server(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string fullyQualifiedDomainName = default(string), string version = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string))
+            : base(location, name, id, type, tags)
         {
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Version = version;
@@ -52,22 +53,23 @@ namespace Microsoft.Azure.Management.Sql.Models
         public string FullyQualifiedDomainName { get; private set; }
 
         /// <summary>
-        /// Gets the version of the server.
+        /// Gets or sets the version of the server.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.version")]
-        public string Version { get; private set; }
+        public string Version { get; set; }
 
         /// <summary>
-        /// Gets administrator username for the server.
+        /// Gets or sets administrator username for the server. Can only be
+        /// specified when the server is being created.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.administratorLogin")]
-        public string AdministratorLogin { get; private set; }
+        public string AdministratorLogin { get; set; }
 
         /// <summary>
-        /// Gets the administrator login password.
+        /// Gets or sets the administrator login password.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.administratorLoginPassword")]
-        public string AdministratorLoginPassword { get; private set; }
+        public string AdministratorLoginPassword { get; set; }
 
         /// <summary>
         /// Validate the object.

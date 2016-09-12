@@ -25,13 +25,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the Schema class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="tables">Gets the tables from this database.</param>
-        public Schema(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.Collections.Generic.IList<Table> tables = default(System.Collections.Generic.IList<Table>))
-            : base(location, id, name, type, tags)
+        public Schema(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.Collections.Generic.IList<Table> tables = default(System.Collections.Generic.IList<Table>))
+            : base(location, name, id, type, tags)
         {
             Tables = tables;
         }

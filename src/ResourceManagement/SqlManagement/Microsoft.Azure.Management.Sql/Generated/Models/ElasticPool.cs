@@ -11,7 +11,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     using System.Linq;
 
     /// <summary>
-    /// Represents an Azure SQL Elastic Pool (Elastic Pool).
+    /// Represents an Azure SQL Database elastic pool.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
     public partial class ElasticPool : Resource
@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the ElasticPool class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="creationDate">Gets the creation date of the Azure SQL
@@ -44,8 +44,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Databases are guaranteed.</param>
         /// <param name="storageMB">Gets storage limit for the Sql Azure
         /// Database Elastic Pool in MB.</param>
-        public ElasticPool(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? creationDate = default(System.DateTime?), string state = default(string), string edition = default(string), int? dtu = default(int?), int? databaseDtuMax = default(int?), int? databaseDtuMin = default(int?), int? storageMB = default(int?))
-            : base(location, id, name, type, tags)
+        public ElasticPool(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? creationDate = default(System.DateTime?), string state = default(string), string edition = default(string), int? dtu = default(int?), int? databaseDtuMax = default(int?), int? databaseDtuMin = default(int?), int? storageMB = default(int?))
+            : base(location, name, id, type, tags)
         {
             CreationDate = creationDate;
             State = state;
@@ -73,31 +73,31 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// include: 'Basic', 'Standard', 'Premium'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.edition")]
-        public string Edition { get; private set; }
+        public string Edition { get; set; }
 
         /// <summary>
         /// Gets the total shared DTU for the Sql Azure Database Elastic Pool.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.dtu")]
-        public int? Dtu { get; private set; }
+        public int? Dtu { get; set; }
 
         /// <summary>
         /// Gets the maximum DTU any one Sql Azure Database can consume.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.databaseDtuMax")]
-        public int? DatabaseDtuMax { get; private set; }
+        public int? DatabaseDtuMax { get; set; }
 
         /// <summary>
         /// Gets the minimum DTU all Sql Azure Databases are guaranteed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.databaseDtuMin")]
-        public int? DatabaseDtuMin { get; private set; }
+        public int? DatabaseDtuMin { get; set; }
 
         /// <summary>
         /// Gets storage limit for the Sql Azure Database Elastic Pool in MB.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.storageMB")]
-        public int? StorageMB { get; private set; }
+        public int? StorageMB { get; set; }
 
         /// <summary>
         /// Validate the object.

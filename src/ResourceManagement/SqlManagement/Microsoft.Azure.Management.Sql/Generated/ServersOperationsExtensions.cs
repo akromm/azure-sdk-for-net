@@ -23,12 +23,18 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='parameters'>
             /// The required parameters for createing or updating a server.
             /// </param>
-            public static Server CreateOrUpdate(this IServersOperations operations, ServerCreateOrUpdateParameters parameters)
+            public static Server CreateOrUpdate(this IServersOperations operations, string resourceGroupName, string serverName, Server parameters)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CreateOrUpdateAsync(parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CreateOrUpdateAsync(resourceGroupName, serverName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -37,15 +43,21 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='parameters'>
             /// The required parameters for createing or updating a server.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<Server> CreateOrUpdateAsync(this IServersOperations operations, ServerCreateOrUpdateParameters parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<Server> CreateOrUpdateAsync(this IServersOperations operations, string resourceGroupName, string serverName, Server parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, serverName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -57,9 +69,15 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static void Delete(this IServersOperations operations)
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static void Delete(this IServersOperations operations, string resourceGroupName, string serverName)
             {
-                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).DeleteAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).DeleteAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -67,13 +85,19 @@ namespace Microsoft.Azure.Management.Sql
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task DeleteAsync(this IServersOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task DeleteAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                await operations.DeleteWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false);
+                await operations.DeleteWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false);
             }
 
             /// <summary>
@@ -82,9 +106,15 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static Server Get(this IServersOperations operations)
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static Server Get(this IServersOperations operations, string resourceGroupName, string serverName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -92,13 +122,19 @@ namespace Microsoft.Azure.Management.Sql
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<Server> GetAsync(this IServersOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<Server> GetAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.GetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -110,9 +146,12 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static System.Collections.Generic.IEnumerable<Server> List(this IServersOperations operations)
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            public static System.Collections.Generic.IEnumerable<Server> List(this IServersOperations operations, string resourceGroupName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListAsync(resourceGroupName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -121,12 +160,15 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<System.Collections.Generic.IEnumerable<Server>> ListAsync(this IServersOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<System.Collections.Generic.IEnumerable<Server>> ListAsync(this IServersOperations operations, string resourceGroupName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.ListWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(resourceGroupName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -138,9 +180,15 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static void CancelUpgrade(this IServersOperations operations)
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static void CancelUpgrade(this IServersOperations operations, string resourceGroupName, string serverName)
             {
-                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CancelUpgradeAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CancelUpgradeAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -149,12 +197,18 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task CancelUpgradeAsync(this IServersOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task CancelUpgradeAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                await operations.CancelUpgradeWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false);
+                await operations.CancelUpgradeWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false);
             }
 
             /// <summary>
@@ -163,9 +217,15 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ServerUpgradeGetResult GetUpgradeResult(this IServersOperations operations)
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static ServerUpgradeGetResult GetUpgradeResult(this IServersOperations operations, string resourceGroupName, string serverName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetUpgradeResultAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetUpgradeResultAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -174,12 +234,18 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<ServerUpgradeGetResult> GetUpgradeResultAsync(this IServersOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<ServerUpgradeGetResult> GetUpgradeResultAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.GetUpgradeResultWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUpgradeResultWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -191,12 +257,18 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='serverUpgradeProperties'>
             /// Gets or sets the properties of the Azure SQL Server Upgrade.
             /// </param>
-            public static void StartUpgrade(this IServersOperations operations, ServerUpgradeProperties serverUpgradeProperties)
+            public static void StartUpgrade(this IServersOperations operations, string resourceGroupName, string serverName, ServerUpgradeProperties serverUpgradeProperties)
             {
-                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).StartUpgradeAsync(serverUpgradeProperties), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).StartUpgradeAsync(resourceGroupName, serverName, serverUpgradeProperties), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -205,15 +277,147 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='serverUpgradeProperties'>
             /// Gets or sets the properties of the Azure SQL Server Upgrade.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task StartUpgradeAsync(this IServersOperations operations, ServerUpgradeProperties serverUpgradeProperties, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task StartUpgradeAsync(this IServersOperations operations, string resourceGroupName, string serverName, ServerUpgradeProperties serverUpgradeProperties, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                await operations.StartUpgradeWithHttpMessagesAsync(serverUpgradeProperties, null, cancellationToken).ConfigureAwait(false);
+                await operations.StartUpgradeWithHttpMessagesAsync(resourceGroupName, serverName, serverUpgradeProperties, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Returns information about Azure SQL Server usage.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static System.Collections.Generic.IEnumerable<ServerMetric> ListUsages(this IServersOperations operations, string resourceGroupName, string serverName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListUsagesAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns information about Azure SQL Server usage.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<System.Collections.Generic.IEnumerable<ServerMetric>> ListUsagesAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListUsagesWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns information about an Azure SQL Database Service Objective.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serviceObjectiveName'>
+            /// The name of the service objective to retrieve.
+            /// </param>
+            public static ServiceObjective GetServiceObjective(this IServersOperations operations, string resourceGroupName, string serverName, string serviceObjectiveName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetServiceObjectiveAsync(resourceGroupName, serverName, serviceObjectiveName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns information about an Azure SQL Database Service Objective.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serviceObjectiveName'>
+            /// The name of the service objective to retrieve.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServiceObjective> GetServiceObjectiveAsync(this IServersOperations operations, string resourceGroupName, string serverName, string serviceObjectiveName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.GetServiceObjectiveWithHttpMessagesAsync(resourceGroupName, serverName, serviceObjectiveName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns information about Azure SQL Database Service Objectives.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static System.Collections.Generic.IEnumerable<ServiceObjective> ListServiceObjectives(this IServersOperations operations, string resourceGroupName, string serverName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListServiceObjectivesAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns information about Azure SQL Database Service Objectives.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<System.Collections.Generic.IEnumerable<ServiceObjective>> ListServiceObjectivesAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListServiceObjectivesWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -221,6 +425,12 @@ namespace Microsoft.Azure.Management.Sql
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
             /// </param>
             /// <param name='firewallRule'>
             /// The name of the Azure SQL Server Firewall Rule.
@@ -228,9 +438,9 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='parameters'>
             /// The required parameters for createing or updating a firewall rule.
             /// </param>
-            public static FirewallRule CreateOrUpdateFirewallRule(this IServersOperations operations, string firewallRule, FirewallRuleCreateOrUpdateParameters parameters)
+            public static FirewallRule CreateOrUpdateFirewallRule(this IServersOperations operations, string resourceGroupName, string serverName, string firewallRule, FirewallRule parameters)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CreateOrUpdateFirewallRuleAsync(firewallRule, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CreateOrUpdateFirewallRuleAsync(resourceGroupName, serverName, firewallRule, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -238,6 +448,12 @@ namespace Microsoft.Azure.Management.Sql
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
             /// </param>
             /// <param name='firewallRule'>
             /// The name of the Azure SQL Server Firewall Rule.
@@ -248,9 +464,9 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<FirewallRule> CreateOrUpdateFirewallRuleAsync(this IServersOperations operations, string firewallRule, FirewallRuleCreateOrUpdateParameters parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<FirewallRule> CreateOrUpdateFirewallRuleAsync(this IServersOperations operations, string resourceGroupName, string serverName, string firewallRule, FirewallRule parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.CreateOrUpdateFirewallRuleWithHttpMessagesAsync(firewallRule, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateOrUpdateFirewallRuleWithHttpMessagesAsync(resourceGroupName, serverName, firewallRule, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -262,12 +478,18 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='firewallRule'>
             /// The name of the Azure SQL Server Firewall Rule.
             /// </param>
-            public static void DeleteFirewallRules(this IServersOperations operations, string firewallRule)
+            public static void DeleteFirewallRules(this IServersOperations operations, string resourceGroupName, string serverName, string firewallRule)
             {
-                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).DeleteFirewallRulesAsync(firewallRule), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).DeleteFirewallRulesAsync(resourceGroupName, serverName, firewallRule), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -276,15 +498,21 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='firewallRule'>
             /// The name of the Azure SQL Server Firewall Rule.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task DeleteFirewallRulesAsync(this IServersOperations operations, string firewallRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task DeleteFirewallRulesAsync(this IServersOperations operations, string resourceGroupName, string serverName, string firewallRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                await operations.DeleteFirewallRulesWithHttpMessagesAsync(firewallRule, null, cancellationToken).ConfigureAwait(false);
+                await operations.DeleteFirewallRulesWithHttpMessagesAsync(resourceGroupName, serverName, firewallRule, null, cancellationToken).ConfigureAwait(false);
             }
 
             /// <summary>
@@ -293,12 +521,18 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='firewallRule'>
             /// The name of the Azure SQL Server Firewall Rule.
             /// </param>
-            public static FirewallRule GetFirewallRule(this IServersOperations operations, string firewallRule)
+            public static FirewallRule GetFirewallRule(this IServersOperations operations, string resourceGroupName, string serverName, string firewallRule)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetFirewallRuleAsync(firewallRule), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetFirewallRuleAsync(resourceGroupName, serverName, firewallRule), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -307,15 +541,21 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='firewallRule'>
             /// The name of the Azure SQL Server Firewall Rule.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<FirewallRule> GetFirewallRuleAsync(this IServersOperations operations, string firewallRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<FirewallRule> GetFirewallRuleAsync(this IServersOperations operations, string resourceGroupName, string serverName, string firewallRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.GetFirewallRuleWithHttpMessagesAsync(firewallRule, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetFirewallRuleWithHttpMessagesAsync(resourceGroupName, serverName, firewallRule, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -327,9 +567,15 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static System.Collections.Generic.IEnumerable<FirewallRule> ListFirewallRules(this IServersOperations operations)
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static System.Collections.Generic.IEnumerable<FirewallRule> ListFirewallRules(this IServersOperations operations, string resourceGroupName, string serverName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListFirewallRulesAsync(), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListFirewallRulesAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -338,12 +584,853 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<System.Collections.Generic.IEnumerable<FirewallRule>> ListFirewallRulesAsync(this IServersOperations operations, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<System.Collections.Generic.IEnumerable<FirewallRule>> ListFirewallRulesAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.ListFirewallRulesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListFirewallRulesWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Imports a bacpac into a new Azure SQL database.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for importing a Bacpac into a database.
+            /// </param>
+            public static ImportExportOperationStatusResponse ImportDatabase(this IServersOperations operations, string resourceGroupName, string serverName, ImportRequestParameters parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ImportDatabaseAsync(resourceGroupName, serverName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Imports a bacpac into a new Azure SQL database.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for importing a Bacpac into a database.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> ImportDatabaseAsync(this IServersOperations operations, string resourceGroupName, string serverName, ImportRequestParameters parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ImportDatabaseWithHttpMessagesAsync(resourceGroupName, serverName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Imports a bacpac into a new Azure SQL database.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for importing a Bacpac into a database.
+            /// </param>
+            public static ImportExportOperationStatusResponse BeginImportDatabase(this IServersOperations operations, string resourceGroupName, string serverName, ImportRequestParameters parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).BeginImportDatabaseAsync(resourceGroupName, serverName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Imports a bacpac into a new Azure SQL database.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for importing a Bacpac into a database.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> BeginImportDatabaseAsync(this IServersOperations operations, string resourceGroupName, string serverName, ImportRequestParameters parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.BeginImportDatabaseWithHttpMessagesAsync(resourceGroupName, serverName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the status of an import operation given the operation ID.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='operationId'>
+            /// The operation ID associated with the operation.
+            /// </param>
+            public static ImportExportOperationStatusResponse GetImportStatus(this IServersOperations operations, string resourceGroupName, string serverName, System.Guid operationId)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetImportStatusAsync(resourceGroupName, serverName, operationId), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the status of an import operation given the operation ID.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='operationId'>
+            /// The operation ID associated with the operation.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> GetImportStatusAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Guid operationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.GetImportStatusWithHttpMessagesAsync(resourceGroupName, serverName, operationId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the status of an import operation given the operation ID.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='operationId'>
+            /// The operation ID associated with the operation.
+            /// </param>
+            public static ImportExportOperationStatusResponse BeginGetImportStatus(this IServersOperations operations, string resourceGroupName, string serverName, System.Guid operationId)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).BeginGetImportStatusAsync(resourceGroupName, serverName, operationId), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the status of an import operation given the operation ID.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='operationId'>
+            /// The operation ID associated with the operation.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> BeginGetImportStatusAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Guid operationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.BeginGetImportStatusWithHttpMessagesAsync(resourceGroupName, serverName, operationId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of Azure SQL Server disaster recovery configurations.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static ServerDisasterRecoveryConfigurationList ListDisasterRecoveryConfigurations(this IServersOperations operations, string resourceGroupName, string serverName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListDisasterRecoveryConfigurationsAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of Azure SQL Server disaster recovery configurations.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerDisasterRecoveryConfigurationList> ListDisasterRecoveryConfigurationsAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListDisasterRecoveryConfigurationsWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns information about an Azure SQL Server disaster recovery
+            /// configurations.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// retrieved.
+            /// </param>
+            public static ServerDisasterRecoveryConfiguration GetDisasterRecoveryConfiguration(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetDisasterRecoveryConfigurationAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns information about an Azure SQL Server disaster recovery
+            /// configurations.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// retrieved.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerDisasterRecoveryConfiguration> GetDisasterRecoveryConfigurationAsync(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.GetDisasterRecoveryConfigurationWithHttpMessagesAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes the Azure SQL server disaster recovery configuration with the
+            /// given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// deleted.
+            /// </param>
+            public static void DeleteDisasterRecoveryConfiguration(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).DeleteDisasterRecoveryConfigurationAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the Azure SQL server disaster recovery configuration with the
+            /// given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// deleted.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task DeleteDisasterRecoveryConfigurationAsync(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.DeleteDisasterRecoveryConfigurationWithHttpMessagesAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Begins creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration. To determine the status of the operation call
+            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// retrieved.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for creating or updating a Server disaster
+            /// recovery configuration.
+            /// </param>
+            public static ServerDisasterRecoveryConfiguration CreateOrUpdateDisasterRecoveryConfiguration(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, ServerDisasterRecoveryConfiguration parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CreateOrUpdateDisasterRecoveryConfigurationAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration. To determine the status of the operation call
+            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// retrieved.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for creating or updating a Server disaster
+            /// recovery configuration.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerDisasterRecoveryConfiguration> CreateOrUpdateDisasterRecoveryConfigurationAsync(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, ServerDisasterRecoveryConfiguration parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.CreateOrUpdateDisasterRecoveryConfigurationWithHttpMessagesAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Begins creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration. To determine the status of the operation call
+            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// retrieved.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for creating or updating a Server disaster
+            /// recovery configuration.
+            /// </param>
+            public static ServerDisasterRecoveryConfiguration BeginCreateOrUpdateDisasterRecoveryConfiguration(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, ServerDisasterRecoveryConfiguration parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).BeginCreateOrUpdateDisasterRecoveryConfigurationAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration. To determine the status of the operation call
+            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to be
+            /// retrieved.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for creating or updating a Server disaster
+            /// recovery configuration.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerDisasterRecoveryConfiguration> BeginCreateOrUpdateDisasterRecoveryConfigurationAsync(this IServersOperations operations, string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, ServerDisasterRecoveryConfiguration parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.BeginCreateOrUpdateDisasterRecoveryConfigurationWithHttpMessagesAsync(resourceGroupName, serverName, serverDisasterRecoveryConfigurationName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Begins failover for the Azure SQL server disaster recovery configuration
+            /// with the given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to start
+            /// failover.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static void FailoverDisasterRecoveryConfiguration(this IServersOperations operations, string serverDisasterRecoveryConfigurationName, string resourceGroupName, string serverName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).FailoverDisasterRecoveryConfigurationAsync(serverDisasterRecoveryConfigurationName, resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins failover for the Azure SQL server disaster recovery configuration
+            /// with the given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to start
+            /// failover.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task FailoverDisasterRecoveryConfigurationAsync(this IServersOperations operations, string serverDisasterRecoveryConfigurationName, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.FailoverDisasterRecoveryConfigurationWithHttpMessagesAsync(serverDisasterRecoveryConfigurationName, resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Begins failover for the Azure SQL server disaster recovery configuration
+            /// with the given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to start
+            /// failover.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static void ForceFailoverAllowDataLossDisasterRecoveryConfiguration(this IServersOperations operations, string serverDisasterRecoveryConfigurationName, string resourceGroupName, string serverName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ForceFailoverAllowDataLossDisasterRecoveryConfigurationAsync(serverDisasterRecoveryConfigurationName, resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins failover for the Azure SQL server disaster recovery configuration
+            /// with the given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='serverDisasterRecoveryConfigurationName'>
+            /// The name of the Azure SQL server disaster recovery configuration to start
+            /// failover.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task ForceFailoverAllowDataLossDisasterRecoveryConfigurationAsync(this IServersOperations operations, string serverDisasterRecoveryConfigurationName, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.ForceFailoverAllowDataLossDisasterRecoveryConfigurationWithHttpMessagesAsync(serverDisasterRecoveryConfigurationName, resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Begins creating a new Azure SQL Server Active Directory Administrator or
+            /// updating an existing Azure SQL Server Active Directory Administrator. To
+            /// determine the status of the operation call
+            /// GetServerAdministratorOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for createing or updating an Active Directory
+            /// Administrator.
+            /// </param>
+            public static ServerAzureADAdministrator CreateOrUpdateAzureADAdministrator(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, ServerAzureADAdministrator parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).CreateOrUpdateAzureADAdministratorAsync(resourceGroupName, serverName, administratorName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins creating a new Azure SQL Server Active Directory Administrator or
+            /// updating an existing Azure SQL Server Active Directory Administrator. To
+            /// determine the status of the operation call
+            /// GetServerAdministratorOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for createing or updating an Active Directory
+            /// Administrator.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerAzureADAdministrator> CreateOrUpdateAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, ServerAzureADAdministrator parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.CreateOrUpdateAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, administratorName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Begins creating a new Azure SQL Server Active Directory Administrator or
+            /// updating an existing Azure SQL Server Active Directory Administrator. To
+            /// determine the status of the operation call
+            /// GetServerAdministratorOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for createing or updating an Active Directory
+            /// Administrator.
+            /// </param>
+            public static ServerAzureADAdministrator BeginCreateOrUpdateAzureADAdministrator(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, ServerAzureADAdministrator parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).BeginCreateOrUpdateAzureADAdministratorAsync(resourceGroupName, serverName, administratorName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins creating a new Azure SQL Server Active Directory Administrator or
+            /// updating an existing Azure SQL Server Active Directory Administrator. To
+            /// determine the status of the operation call
+            /// GetServerAdministratorOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for createing or updating an Active Directory
+            /// Administrator.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerAzureADAdministrator> BeginCreateOrUpdateAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, ServerAzureADAdministrator parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.BeginCreateOrUpdateAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, administratorName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Begins deleting an existing Azure SQL Server Active Directory
+            /// Administrator.To determine the status of the operation call
+            /// GetServerAdministratorDeleteOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            public static void DeleteAzureADAdministrator(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).DeleteAzureADAdministratorAsync(resourceGroupName, serverName, administratorName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins deleting an existing Azure SQL Server Active Directory
+            /// Administrator.To determine the status of the operation call
+            /// GetServerAdministratorDeleteOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task DeleteAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.DeleteAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, administratorName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Begins deleting an existing Azure SQL Server Active Directory
+            /// Administrator.To determine the status of the operation call
+            /// GetServerAdministratorDeleteOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            public static void BeginDeleteAzureADAdministrator(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName)
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).BeginDeleteAzureADAdministratorAsync(resourceGroupName, serverName, administratorName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Begins deleting an existing Azure SQL Server Active Directory
+            /// Administrator.To determine the status of the operation call
+            /// GetServerAdministratorDeleteOperationStatus.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task BeginDeleteAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.BeginDeleteAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, administratorName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Returns an Azure SQL Server Administrator.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            public static ServerAzureADAdministrator GetAzureADAdministrator(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetAzureADAdministratorAsync(resourceGroupName, serverName, administratorName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns an Azure SQL Server Administrator.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='administratorName'>
+            /// The name of the Azure SQL Server Active Directory Administrator.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerAzureADAdministrator> GetAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, string administratorName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.GetAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, administratorName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of Azure SQL Server Administrators.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static System.Collections.Generic.IEnumerable<ServerAzureADAdministrator> ListAzureADAdministrator(this IServersOperations operations, string resourceGroupName, string serverName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListAzureADAdministratorAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of Azure SQL Server Administrators.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<System.Collections.Generic.IEnumerable<ServerAzureADAdministrator>> ListAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

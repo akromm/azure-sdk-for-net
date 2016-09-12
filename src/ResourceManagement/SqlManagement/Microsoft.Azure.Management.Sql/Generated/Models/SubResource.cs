@@ -23,17 +23,25 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the SubResource class.
         /// </summary>
+        /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        public SubResource(string id = default(string))
+        public SubResource(string name = default(string), string id = default(string))
         {
+            Name = name;
             Id = id;
         }
 
         /// <summary>
-        /// Gets or sets resource Id
+        /// Gets resource name
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// Gets resource Id
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
     }
 }

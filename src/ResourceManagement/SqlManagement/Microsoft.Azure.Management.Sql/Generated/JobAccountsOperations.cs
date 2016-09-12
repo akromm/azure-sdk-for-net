@@ -526,6 +526,10 @@ namespace Microsoft.Azure.Management.Sql
             {
                 throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.CannotBeNull, "jobAccountResource");
             }
+            if (jobAccountResource != null)
+            {
+                jobAccountResource.Validate();
+            }
             string apiVersion = "2015-05-01-preview";
             // Tracing
             bool _shouldTrace = Microsoft.Rest.ServiceClientTracing.IsEnabled;
@@ -617,7 +621,7 @@ namespace Microsoft.Azure.Management.Sql
             System.Net.HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 200 && (int)_statusCode != 201)
+            if ((int)_statusCode != 200 && (int)_statusCode != 201 && (int)_statusCode != 202)
             {
                 var ex = new ArmErrorResponseMessageException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -862,7 +866,7 @@ namespace Microsoft.Azure.Management.Sql
             System.Net.HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 200 && (int)_statusCode != 204)
+            if ((int)_statusCode != 200 && (int)_statusCode != 204 && (int)_statusCode != 202)
             {
                 var ex = new ArmErrorResponseMessageException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try

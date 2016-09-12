@@ -25,14 +25,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the Column class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="columnType">Gets the type of Azure SQL Database table
         /// column.</param>
-        public Column(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string columnType = default(string))
-            : base(location, id, name, type, tags)
+        public Column(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string columnType = default(string))
+            : base(location, name, id, type, tags)
         {
             ColumnType = columnType;
         }

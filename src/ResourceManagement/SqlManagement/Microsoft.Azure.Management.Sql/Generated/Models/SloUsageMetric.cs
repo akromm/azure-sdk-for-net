@@ -24,8 +24,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the SloUsageMetric class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="serviceLevelObjective">Gets or sets
@@ -34,8 +34,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// serviceLevelObjectiveId for SLO usage metric.</param>
         /// <param name="inRangeTimeRatio">Gets or sets inRangeTimeRatio for
         /// SLO usage metric.</param>
-        public SloUsageMetric(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string serviceLevelObjective = default(string), string serviceLevelObjectiveId = default(string), double? inRangeTimeRatio = default(double?))
-            : base(location, id, name, type, tags)
+        public SloUsageMetric(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string serviceLevelObjective = default(string), System.Guid? serviceLevelObjectiveId = default(System.Guid?), double? inRangeTimeRatio = default(double?))
+            : base(location, name, id, type, tags)
         {
             ServiceLevelObjective = serviceLevelObjective;
             ServiceLevelObjectiveId = serviceLevelObjectiveId;
@@ -52,7 +52,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Gets or sets serviceLevelObjectiveId for SLO usage metric.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "serviceLevelObjectiveId")]
-        public string ServiceLevelObjectiveId { get; set; }
+        public System.Guid? ServiceLevelObjectiveId { get; set; }
 
         /// <summary>
         /// Gets or sets inRangeTimeRatio for SLO usage metric.

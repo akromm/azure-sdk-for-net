@@ -14,7 +14,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     /// Represents a Service Tier Advisor.
     /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
-    public partial class ServiceTierAdvisor : Resource
+    public partial class ServiceTierAdvisor : SubResource
     {
         /// <summary>
         /// Initializes a new instance of the ServiceTierAdvisor class.
@@ -24,11 +24,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServiceTierAdvisor class.
         /// </summary>
-        /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
-        /// <param name="type">Resource type</param>
-        /// <param name="tags">Resource tags</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="observationPeriodStart">Gets the observation period
         /// start.</param>
         /// <param name="observationPeriodEnd">Gets the observation period
@@ -80,8 +77,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// tier advisor.</param>
         /// <param name="confidence">Gets or sets confidence for service tier
         /// advisor.</param>
-        public ServiceTierAdvisor(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? observationPeriodStart = default(System.DateTime?), System.DateTime? observationPeriodEnd = default(System.DateTime?), double? activeTimeRatio = default(double?), double? minDtu = default(double?), double? avgDtu = default(double?), double? maxDtu = default(double?), double? maxSizeInGB = default(double?), System.Collections.Generic.IList<SloUsageMetric> serviceLevelObjectiveUsageMetrics = default(System.Collections.Generic.IList<SloUsageMetric>), string currentServiceLevelObjective = default(string), string currentServiceLevelObjectiveId = default(string), string usageBasedRecommendationServiceLevelObjective = default(string), string usageBasedRecommendationServiceLevelObjectiveId = default(string), string databaseSizeBasedRecommendationServiceLevelObjective = default(string), string databaseSizeBasedRecommendationServiceLevelObjectiveId = default(string), string disasterPlanBasedRecommendationServiceLevelObjective = default(string), string disasterPlanBasedRecommendationServiceLevelObjectiveId = default(string), string overallRecommendationServiceLevelObjective = default(string), string overallRecommendationServiceLevelObjectiveId = default(string), double? confidence = default(double?))
-            : base(location, id, name, type, tags)
+        public ServiceTierAdvisor(string name = default(string), string id = default(string), System.DateTime? observationPeriodStart = default(System.DateTime?), System.DateTime? observationPeriodEnd = default(System.DateTime?), double? activeTimeRatio = default(double?), double? minDtu = default(double?), double? avgDtu = default(double?), double? maxDtu = default(double?), double? maxSizeInGB = default(double?), System.Collections.Generic.IList<SloUsageMetric> serviceLevelObjectiveUsageMetrics = default(System.Collections.Generic.IList<SloUsageMetric>), System.Guid? currentServiceLevelObjective = default(System.Guid?), System.Guid? currentServiceLevelObjectiveId = default(System.Guid?), string usageBasedRecommendationServiceLevelObjective = default(string), System.Guid? usageBasedRecommendationServiceLevelObjectiveId = default(System.Guid?), string databaseSizeBasedRecommendationServiceLevelObjective = default(string), System.Guid? databaseSizeBasedRecommendationServiceLevelObjectiveId = default(System.Guid?), string disasterPlanBasedRecommendationServiceLevelObjective = default(string), System.Guid? disasterPlanBasedRecommendationServiceLevelObjectiveId = default(System.Guid?), string overallRecommendationServiceLevelObjective = default(string), System.Guid? overallRecommendationServiceLevelObjectiveId = default(System.Guid?), double? confidence = default(double?))
+            : base(name, id)
         {
             ObservationPeriodStart = observationPeriodStart;
             ObservationPeriodEnd = observationPeriodEnd;
@@ -120,72 +117,72 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Gets the activeTimeRatio for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.activeTimeRatio")]
-        public double? ActiveTimeRatio { get; set; }
+        public double? ActiveTimeRatio { get; private set; }
 
         /// <summary>
         /// Gets or sets minDtu for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.minDtu")]
-        public double? MinDtu { get; set; }
+        public double? MinDtu { get; private set; }
 
         /// <summary>
         /// Gets or sets avgDtu for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.avgDtu")]
-        public double? AvgDtu { get; set; }
+        public double? AvgDtu { get; private set; }
 
         /// <summary>
         /// Gets or sets maxDtu for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.maxDtu")]
-        public double? MaxDtu { get; set; }
+        public double? MaxDtu { get; private set; }
 
         /// <summary>
         /// Gets or sets maxSizeInGB for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.maxSizeInGB")]
-        public double? MaxSizeInGB { get; set; }
+        public double? MaxSizeInGB { get; private set; }
 
         /// <summary>
         /// Gets or sets serviceLevelObjectiveUsageMetrics for the service
         /// tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.serviceLevelObjectiveUsageMetrics")]
-        public System.Collections.Generic.IList<SloUsageMetric> ServiceLevelObjectiveUsageMetrics { get; set; }
+        public System.Collections.Generic.IList<SloUsageMetric> ServiceLevelObjectiveUsageMetrics { get; private set; }
 
         /// <summary>
         /// Gets or sets currentServiceLevelObjective for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.currentServiceLevelObjective")]
-        public string CurrentServiceLevelObjective { get; set; }
+        public System.Guid? CurrentServiceLevelObjective { get; private set; }
 
         /// <summary>
         /// Gets or sets currentServiceLevelObjectiveId for service tier
         /// advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.currentServiceLevelObjectiveId")]
-        public string CurrentServiceLevelObjectiveId { get; set; }
+        public System.Guid? CurrentServiceLevelObjectiveId { get; private set; }
 
         /// <summary>
         /// Gets or sets usageBasedRecommendationServiceLevelObjective for
         /// service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.usageBasedRecommendationServiceLevelObjective")]
-        public string UsageBasedRecommendationServiceLevelObjective { get; set; }
+        public string UsageBasedRecommendationServiceLevelObjective { get; private set; }
 
         /// <summary>
         /// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for
         /// service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.usageBasedRecommendationServiceLevelObjectiveId")]
-        public string UsageBasedRecommendationServiceLevelObjectiveId { get; set; }
+        public System.Guid? UsageBasedRecommendationServiceLevelObjectiveId { get; private set; }
 
         /// <summary>
         /// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective
         /// for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.databaseSizeBasedRecommendationServiceLevelObjective")]
-        public string DatabaseSizeBasedRecommendationServiceLevelObjective { get; set; }
+        public string DatabaseSizeBasedRecommendationServiceLevelObjective { get; private set; }
 
         /// <summary>
         /// Gets or sets
@@ -193,14 +190,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.databaseSizeBasedRecommendationServiceLevelObjectiveId")]
-        public string DatabaseSizeBasedRecommendationServiceLevelObjectiveId { get; set; }
+        public System.Guid? DatabaseSizeBasedRecommendationServiceLevelObjectiveId { get; private set; }
 
         /// <summary>
         /// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective
         /// for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.disasterPlanBasedRecommendationServiceLevelObjective")]
-        public string DisasterPlanBasedRecommendationServiceLevelObjective { get; set; }
+        public string DisasterPlanBasedRecommendationServiceLevelObjective { get; private set; }
 
         /// <summary>
         /// Gets or sets
@@ -208,47 +205,27 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.disasterPlanBasedRecommendationServiceLevelObjectiveId")]
-        public string DisasterPlanBasedRecommendationServiceLevelObjectiveId { get; set; }
+        public System.Guid? DisasterPlanBasedRecommendationServiceLevelObjectiveId { get; private set; }
 
         /// <summary>
         /// Gets or sets overallRecommendationServiceLevelObjective for
         /// service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.overallRecommendationServiceLevelObjective")]
-        public string OverallRecommendationServiceLevelObjective { get; set; }
+        public string OverallRecommendationServiceLevelObjective { get; private set; }
 
         /// <summary>
         /// Gets or sets overallRecommendationServiceLevelObjectiveId for
         /// service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.overallRecommendationServiceLevelObjectiveId")]
-        public string OverallRecommendationServiceLevelObjectiveId { get; set; }
+        public System.Guid? OverallRecommendationServiceLevelObjectiveId { get; private set; }
 
         /// <summary>
         /// Gets or sets confidence for service tier advisor.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.confidence")]
-        public double? Confidence { get; set; }
+        public double? Confidence { get; private set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public override void Validate()
-        {
-            base.Validate();
-            if (this.ServiceLevelObjectiveUsageMetrics != null)
-            {
-                foreach (var element in this.ServiceLevelObjectiveUsageMetrics)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }

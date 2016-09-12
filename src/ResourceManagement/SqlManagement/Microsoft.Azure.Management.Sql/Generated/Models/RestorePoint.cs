@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the RestorePoint class.
         /// </summary>
         /// <param name="location">Resource location</param>
-        /// <param name="id">Resource Id</param>
         /// <param name="name">Resource name</param>
+        /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
         /// <param name="restorePointType">Gets the restore point type of the
@@ -37,8 +37,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// otherwise.</param>
         /// <param name="earliestRestoreDate">Earliest restore time. Populated
         /// when restorePointType = DISCRETE. Null otherwise.</param>
-        public RestorePoint(string location, string id = default(string), string name = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string restorePointType = default(string), System.DateTime? restorePointCreationDate = default(System.DateTime?), System.DateTime? earliestRestoreDate = default(System.DateTime?))
-            : base(location, id, name, type, tags)
+        public RestorePoint(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string restorePointType = default(string), System.DateTime? restorePointCreationDate = default(System.DateTime?), System.DateTime? earliestRestoreDate = default(System.DateTime?))
+            : base(location, name, id, type, tags)
         {
             RestorePointType = restorePointType;
             RestorePointCreationDate = restorePointCreationDate;

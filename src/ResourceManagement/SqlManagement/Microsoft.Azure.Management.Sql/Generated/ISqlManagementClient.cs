@@ -45,16 +45,6 @@ namespace Microsoft.Azure.Management.Sql
         string SubscriptionId { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group to which the resource belongs.
-        /// </summary>
-        string ResourceGroupName { get; set; }
-
-        /// <summary>
-        /// The name of the Azure SQL Server
-        /// </summary>
-        string ServerName { get; set; }
-
-        /// <summary>
         /// Gets or sets the preferred language for the response.
         /// </summary>
         string AcceptLanguage { get; set; }
@@ -78,9 +68,14 @@ namespace Microsoft.Azure.Management.Sql
         IJobAccountsOperations JobAccounts { get; }
 
         /// <summary>
-        /// Gets the IServersOperations.
+        /// Gets the IJobsOperations.
         /// </summary>
-        IServersOperations Servers { get; }
+        IJobsOperations Jobs { get; }
+
+        /// <summary>
+        /// Gets the IEngineAuditRecordsOperations.
+        /// </summary>
+        IEngineAuditRecordsOperations EngineAuditRecords { get; }
 
         /// <summary>
         /// Gets the IDatabasesOperations.
@@ -88,9 +83,34 @@ namespace Microsoft.Azure.Management.Sql
         IDatabasesOperations Databases { get; }
 
         /// <summary>
+        /// Gets the IServersOperations.
+        /// </summary>
+        IServersOperations Servers { get; }
+
+        /// <summary>
         /// Gets the IElasticPoolsOperations.
         /// </summary>
         IElasticPoolsOperations ElasticPools { get; }
+
+        /// <summary>
+        /// Gets the IRecommendedElasticPoolsOperations.
+        /// </summary>
+        IRecommendedElasticPoolsOperations RecommendedElasticPools { get; }
+
+        /// <summary>
+        /// Gets the IAuditingPolicyOperations.
+        /// </summary>
+        IAuditingPolicyOperations AuditingPolicy { get; }
+
+        /// <summary>
+        /// Gets the IDataMaskingOperations.
+        /// </summary>
+        IDataMaskingOperations DataMasking { get; }
+
+        /// <summary>
+        /// Gets the ICapabilitiesOperations.
+        /// </summary>
+        ICapabilitiesOperations Capabilities { get; }
 
     }
 }
