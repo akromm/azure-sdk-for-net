@@ -18,6 +18,57 @@ namespace Microsoft.Azure.Management.Sql
     public static partial class DatabasesOperationsExtensions
     {
             /// <summary>
+            /// Renames an Azure SQL Database.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the Azure SQL Database Server
+            /// belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Database Server on which the Azure SQL Database
+            /// is hosted.
+            /// </param>
+            /// <param name='databaseName'>
+            /// The name of the Azure SQL Database to rename.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            public static void Rename(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, string id = default(string))
+            {
+                System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).RenameAsync(resourceGroupName, serverName, databaseName, id), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None,  System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Renames an Azure SQL Database.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the Azure SQL Database Server
+            /// belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Database Server on which the Azure SQL Database
+            /// is hosted.
+            /// </param>
+            /// <param name='databaseName'>
+            /// The name of the Azure SQL Database to rename.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task RenameAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, string id = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                await operations.RenameWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, id, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
             /// Pause an Azure SQL Data Warehouse database.
             /// </summary>
             /// <param name='operations'>
@@ -1043,60 +1094,6 @@ namespace Microsoft.Azure.Management.Sql
             public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> GetImportExportStatusAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, System.Guid operationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetImportExportStatusWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, operationId, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Gets the status of an import or export operation on an Azure SQL database
-            /// given the operation ID.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the Resource Group to which the resource belongs.
-            /// </param>
-            /// <param name='serverName'>
-            /// The name of the Azure SQL Server
-            /// </param>
-            /// <param name='databaseName'>
-            /// The name of the Azure SQL database
-            /// </param>
-            /// <param name='operationId'>
-            /// The operation ID associated with the operation.
-            /// </param>
-            public static ImportExportOperationStatusResponse BeginGetImportExportStatus(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, System.Guid operationId)
-            {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).BeginGetImportExportStatusAsync(resourceGroupName, serverName, databaseName, operationId), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets the status of an import or export operation on an Azure SQL database
-            /// given the operation ID.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the Resource Group to which the resource belongs.
-            /// </param>
-            /// <param name='serverName'>
-            /// The name of the Azure SQL Server
-            /// </param>
-            /// <param name='databaseName'>
-            /// The name of the Azure SQL database
-            /// </param>
-            /// <param name='operationId'>
-            /// The operation ID associated with the operation.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> BeginGetImportExportStatusAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, System.Guid operationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                using (var _result = await operations.BeginGetImportExportStatusWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, operationId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

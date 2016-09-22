@@ -42,7 +42,7 @@ namespace Microsoft.Azure.Management.Sql
         /// Azure subscription. The subscription ID forms part of the URI for
         /// every service call.
         /// </summary>
-        string SubscriptionId { get; set; }
+        System.Guid SubscriptionId { get; set; }
 
         /// <summary>
         /// Gets or sets the preferred language for the response.
@@ -63,24 +63,14 @@ namespace Microsoft.Azure.Management.Sql
 
 
         /// <summary>
-        /// Gets the IJobAccountsOperations.
+        /// Gets the IDatabasesOperations.
         /// </summary>
-        IJobAccountsOperations JobAccounts { get; }
-
-        /// <summary>
-        /// Gets the IJobsOperations.
-        /// </summary>
-        IJobsOperations Jobs { get; }
+        IDatabasesOperations Databases { get; }
 
         /// <summary>
         /// Gets the IEngineAuditRecordsOperations.
         /// </summary>
         IEngineAuditRecordsOperations EngineAuditRecords { get; }
-
-        /// <summary>
-        /// Gets the IDatabasesOperations.
-        /// </summary>
-        IDatabasesOperations Databases { get; }
 
         /// <summary>
         /// Gets the IServersOperations.

@@ -740,52 +740,6 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Gets the status of an import operation given the operation ID.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the Resource Group to which the resource belongs.
-            /// </param>
-            /// <param name='serverName'>
-            /// The name of the Azure SQL Server
-            /// </param>
-            /// <param name='operationId'>
-            /// The operation ID associated with the operation.
-            /// </param>
-            public static ImportExportOperationStatusResponse BeginGetImportStatus(this IServersOperations operations, string resourceGroupName, string serverName, System.Guid operationId)
-            {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).BeginGetImportStatusAsync(resourceGroupName, serverName, operationId), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets the status of an import operation given the operation ID.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='resourceGroupName'>
-            /// The name of the Resource Group to which the resource belongs.
-            /// </param>
-            /// <param name='serverName'>
-            /// The name of the Azure SQL Server
-            /// </param>
-            /// <param name='operationId'>
-            /// The operation ID associated with the operation.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async System.Threading.Tasks.Task<ImportExportOperationStatusResponse> BeginGetImportStatusAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Guid operationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-            {
-                using (var _result = await operations.BeginGetImportStatusWithHttpMessagesAsync(resourceGroupName, serverName, operationId, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Returns a list of Azure SQL Server disaster recovery configurations.
             /// </summary>
             /// <param name='operations'>
@@ -1431,6 +1385,92 @@ namespace Microsoft.Azure.Management.Sql
             public static async Task<System.Collections.Generic.IEnumerable<ServerAzureADAdministrator>> ListAzureADAdministratorAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListAzureADAdministratorWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates Server connection policy.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for updating a secure connection policy.
+            /// </param>
+            public static ServerSecureConnectionPolicy UpdateSecureConnectionPolicy(this IServersOperations operations, string resourceGroupName, string serverName, ServerSecureConnectionPolicy parameters)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).UpdateSecureConnectionPolicyAsync(resourceGroupName, serverName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates Server connection policy.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='parameters'>
+            /// The required parameters for updating a secure connection policy.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerSecureConnectionPolicy> UpdateSecureConnectionPolicyAsync(this IServersOperations operations, string resourceGroupName, string serverName, ServerSecureConnectionPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.UpdateSecureConnectionPolicyWithHttpMessagesAsync(resourceGroupName, serverName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns an Azure SQL Server secure connection policy.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            public static ServerSecureConnectionPolicy GetSecureConnectionPolicy(this IServersOperations operations, string resourceGroupName, string serverName)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).GetSecureConnectionPolicyAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns an Azure SQL Server secure connection policy.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Server
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async System.Threading.Tasks.Task<ServerSecureConnectionPolicy> GetSecureConnectionPolicyAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.GetSecureConnectionPolicyWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

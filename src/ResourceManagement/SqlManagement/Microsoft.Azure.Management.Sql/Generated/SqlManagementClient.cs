@@ -43,7 +43,7 @@ namespace Microsoft.Azure.Management.Sql
         /// subscription. The subscription ID forms part of the URI for every service
         /// call.
         /// </summary>
-        public string SubscriptionId { get; set; }
+        public System.Guid SubscriptionId { get; set; }
 
         /// <summary>
         /// Gets or sets the preferred language for the response.
@@ -63,24 +63,14 @@ namespace Microsoft.Azure.Management.Sql
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the IJobAccountsOperations.
+        /// Gets the IDatabasesOperations.
         /// </summary>
-        public virtual IJobAccountsOperations JobAccounts { get; private set; }
-
-        /// <summary>
-        /// Gets the IJobsOperations.
-        /// </summary>
-        public virtual IJobsOperations Jobs { get; private set; }
+        public virtual IDatabasesOperations Databases { get; private set; }
 
         /// <summary>
         /// Gets the IEngineAuditRecordsOperations.
         /// </summary>
         public virtual IEngineAuditRecordsOperations EngineAuditRecords { get; private set; }
-
-        /// <summary>
-        /// Gets the IDatabasesOperations.
-        /// </summary>
-        public virtual IDatabasesOperations Databases { get; private set; }
 
         /// <summary>
         /// Gets the IServersOperations.
@@ -313,10 +303,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </summary>
         private void Initialize()
         {
-            this.JobAccounts = new JobAccountsOperations(this);
-            this.Jobs = new JobsOperations(this);
-            this.EngineAuditRecords = new EngineAuditRecordsOperations(this);
             this.Databases = new DatabasesOperations(this);
+            this.EngineAuditRecords = new EngineAuditRecordsOperations(this);
             this.Servers = new ServersOperations(this);
             this.ElasticPools = new ElasticPoolsOperations(this);
             this.RecommendedElasticPools = new RecommendedElasticPoolsOperations(this);

@@ -10,10 +10,6 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
-    /// <summary>
-    /// The OData query parameters that are supported when retrieving Engine
-    /// Auditing records
-    /// </summary>
     public partial class EngineAuditRecordsFilterParameters
     {
         /// <summary>

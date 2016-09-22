@@ -10,9 +10,6 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
-    /// <summary>
-    /// Details about a specific error
-    /// </summary>
     public partial class ArmErrorResponseErrorDetail
     {
         /// <summary>
@@ -35,17 +32,17 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "code")]
-        public string Code { get; private set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "message")]
-        public string Message { get; private set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "target")]
-        public string Target { get; private set; }
+        public string Target { get; set; }
 
     }
 }

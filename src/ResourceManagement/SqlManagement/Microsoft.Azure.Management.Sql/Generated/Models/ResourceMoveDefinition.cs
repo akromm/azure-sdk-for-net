@@ -10,25 +10,25 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
-    public partial class ArmErrorResponseMessage
+    public partial class ResourceMoveDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the ArmErrorResponseMessage class.
+        /// Initializes a new instance of the ResourceMoveDefinition class.
         /// </summary>
-        public ArmErrorResponseMessage() { }
+        public ResourceMoveDefinition() { }
 
         /// <summary>
-        /// Initializes a new instance of the ArmErrorResponseMessage class.
+        /// Initializes a new instance of the ResourceMoveDefinition class.
         /// </summary>
-        public ArmErrorResponseMessage(ArmErrorResponseExtendedErrorInfo error = default(ArmErrorResponseExtendedErrorInfo))
+        public ResourceMoveDefinition(string id = default(string))
         {
-            Error = error;
+            Id = id;
         }
 
         /// <summary>
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "error")]
-        public ArmErrorResponseExtendedErrorInfo Error { get; set; }
+        [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
 
     }
 }

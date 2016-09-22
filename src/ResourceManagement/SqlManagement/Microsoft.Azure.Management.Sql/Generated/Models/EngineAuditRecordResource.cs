@@ -10,9 +10,6 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
-    /// <summary>
-    /// Represents an engine audit record
-    /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
     public partial class EngineAuditRecordResource
     {
@@ -42,57 +39,57 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
-        public string Type { get; private set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "location")]
-        public string Location { get; private set; }
+        public string Location { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.actionId")]
-        public string ActionId { get; private set; }
+        public string ActionId { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.principalName")]
-        public string PrincipalName { get; private set; }
+        public string PrincipalName { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.eventTimeUtc")]
-        public string EventTimeUtc { get; private set; }
+        public string EventTimeUtc { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.statement")]
-        public string Statement { get; private set; }
+        public string Statement { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.status")]
-        public string Status { get; private set; }
+        public string Status { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.additionalInfo")]
-        public string AdditionalInfo { get; private set; }
+        public string AdditionalInfo { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.clientIp")]
-        public string ClientIp { get; private set; }
+        public string ClientIp { get; set; }
 
     }
 }
