@@ -26,10 +26,10 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="startIpAddress">Gets the start IP address of the
-        /// Azure SQL Database Firewall Rule.</param>
-        /// <param name="endIpAddress">Gets the end IP address of the Azure
-        /// SQL Database Firewall Rule.</param>
+        /// <param name="startIpAddress">The start IP address of the Azure SQL
+        /// Database Firewall Rule. Must be IPv4 format.</param>
+        /// <param name="endIpAddress">The end IP address of the Azure SQL
+        /// Database Firewall Rule. Must be IPv4 format.</param>
         public FirewallRule(string name = default(string), string id = default(string), string startIpAddress = default(string), string endIpAddress = default(string))
             : base(name, id)
         {
@@ -38,13 +38,15 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets the start IP address of the Azure SQL Database Firewall Rule.
+        /// Gets or sets the start IP address of the Azure SQL Database
+        /// Firewall Rule. Must be IPv4 format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.startIpAddress")]
         public string StartIpAddress { get; set; }
 
         /// <summary>
-        /// Gets the end IP address of the Azure SQL Database Firewall Rule.
+        /// Gets or sets the end IP address of the Azure SQL Database Firewall
+        /// Rule. Must be IPv4 format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.endIpAddress")]
         public string EndIpAddress { get; set; }

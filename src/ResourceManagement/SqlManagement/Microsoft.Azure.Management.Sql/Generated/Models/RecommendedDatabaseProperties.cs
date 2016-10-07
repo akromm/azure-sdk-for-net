@@ -26,13 +26,12 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the RecommendedDatabaseProperties
         /// class.
         /// </summary>
-        /// <param name="name">Gets or sets the name of the Azure SQL Database
-        /// being upgraded.</param>
-        /// <param name="targetEdition">Gets or sets the target edition for
-        /// the Azure SQL Database being upgraded.</param>
-        /// <param name="targetServiceLevelObjective">Gets or sets the target
-        /// Service Level Objective for the Azure SQL Database being
+        /// <param name="name">The name of the Azure SQL Database being
         /// upgraded.</param>
+        /// <param name="targetEdition">The target edition for the Azure SQL
+        /// Database being upgraded.</param>
+        /// <param name="targetServiceLevelObjective">The target Service Level
+        /// Objective for the Azure SQL Database being upgraded.</param>
         public RecommendedDatabaseProperties(string name = default(string), string targetEdition = default(string), string targetServiceLevelObjective = default(string))
         {
             Name = name;

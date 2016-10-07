@@ -24,48 +24,53 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServerAzureADAdministrator class.
         /// </summary>
-        /// <param name="administratorType">Gets the type of Azure SQL Server
-        /// Administrator.</param>
-        /// <param name="login">Gets the Azure SQL Server Administrator Login
+        /// <param name="login">The Azure SQL Server Administrator Login
         /// Value.</param>
-        /// <param name="sid">Gets the Azure SQL Server Administrator
-        /// Sid.</param>
-        /// <param name="tenantId">Gets the Azure SQL Server Active Directory
+        /// <param name="sid">The Azure SQL Server Administrator Sid (Secure
+        /// ID).</param>
+        /// <param name="tenantId">The Azure SQL Server Active Directory
         /// Administrator tenant id.</param>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        public ServerAzureADAdministrator(string administratorType, string login, string sid, string tenantId, string name = default(string), string id = default(string))
+        public ServerAzureADAdministrator(string login, string sid, string tenantId, string name = default(string), string id = default(string))
             : base(name, id)
         {
-            AdministratorType = administratorType;
             Login = login;
             Sid = sid;
             TenantId = tenantId;
         }
-
         /// <summary>
-        /// Gets the type of Azure SQL Server Administrator.
+        /// Static constructor for ServerAzureADAdministrator class.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.administratorType")]
-        public string AdministratorType { get; set; }
+        static ServerAzureADAdministrator()
+        {
+            AdministratorType = "ActiveDirectory";
+        }
 
         /// <summary>
-        /// Gets the Azure SQL Server Administrator Login Value.
+        /// Gets or sets the Azure SQL Server Administrator Login Value.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.login")]
         public string Login { get; set; }
 
         /// <summary>
-        /// Gets the Azure SQL Server Administrator Sid.
+        /// Gets or sets the Azure SQL Server Administrator Sid (Secure ID).
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.sid")]
         public string Sid { get; set; }
 
         /// <summary>
-        /// Gets the Azure SQL Server Active Directory Administrator tenant id.
+        /// Gets or sets the Azure SQL Server Active Directory Administrator
+        /// tenant id.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.tenantId")]
         public string TenantId { get; set; }
+
+        /// <summary>
+        /// The type of Azure SQL Server Administrator.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "properties.administratorType")]
+        public static string AdministratorType { get; private set; }
 
         /// <summary>
         /// Validate the object.
@@ -75,10 +80,6 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (AdministratorType == null)
-            {
-                throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.CannotBeNull, "AdministratorType");
-            }
             if (Login == null)
             {
                 throw new Microsoft.Rest.ValidationException(Microsoft.Rest.ValidationRules.CannotBeNull, "Login");

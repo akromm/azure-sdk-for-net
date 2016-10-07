@@ -24,9 +24,9 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the DataMaskingPolicy class.
         /// </summary>
-        /// <param name="dataMaskingState">Gets or sets the state of the data
-        /// masking policy.</param>
-        /// <param name="exemptPrincipals">Gets or sets the list of the exempt
+        /// <param name="dataMaskingState">The state of the data masking
+        /// policy.</param>
+        /// <param name="exemptPrincipals">The list of the exempt
         /// principals</param>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>

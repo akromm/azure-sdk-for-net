@@ -29,34 +29,30 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="endTime">Gets the time the operation finished.</param>
-        /// <param name="errorCode">Gets the error code if available.</param>
-        /// <param name="errorMessage">Gets the error message if
+        /// <param name="endTime">The time the operation finished.</param>
+        /// <param name="errorCode">The error code if available.</param>
+        /// <param name="errorMessage">The error message if available.</param>
+        /// <param name="errorSeverity">The error severity if
         /// available.</param>
-        /// <param name="errorSeverity">Gets the error severity if
+        /// <param name="operation">The operation name.</param>
+        /// <param name="operationId">The unique operation ID.</param>
+        /// <param name="percentComplete">The percentage complete if
         /// available.</param>
-        /// <param name="operation">Gets the operation name.</param>
-        /// <param name="operationId">Gets the unique operation ID.</param>
-        /// <param name="percentComplete">Gets the percentage complete if
+        /// <param name="requestedDatabaseDtuMax">The requested max DTU per
+        /// database if available.</param>
+        /// <param name="requestedDatabaseDtuMin">The requested min DTU per
+        /// database if available.</param>
+        /// <param name="requestedDtu">The requested DTU for the pool if
         /// available.</param>
-        /// <param name="requestedDatabaseDtuMax">Gets the requested max DTU
-        /// per database if available.</param>
-        /// <param name="requestedDatabaseDtuMin">Gets the requested min DTU
-        /// per database if available.</param>
-        /// <param name="requestedDtu">Gets the requested DTU for the pool if
-        /// available.</param>
-        /// <param name="requestedElasticPoolName">Gets the requested name for
-        /// the Elastic Pool if available.</param>
-        /// <param name="requestedStorageLimitInGB">Gets the requested storage
+        /// <param name="requestedElasticPoolName">The requested name for the
+        /// Elastic Pool if available.</param>
+        /// <param name="requestedStorageLimitInGB">The requested storage
         /// limit for the pool in GB if available.</param>
-        /// <param name="elasticPoolName">Gets the name of the Elastic
-        /// Pool.</param>
-        /// <param name="serverName">Gets the name of the Azure SQL Server the
+        /// <param name="elasticPoolName">The name of the Elastic Pool.</param>
+        /// <param name="serverName">The name of the Azure SQL Server the
         /// Elastic Pool is in.</param>
-        /// <param name="startTime">Gets the time the operation
-        /// started.</param>
-        /// <param name="state">Gets the current state of the
-        /// operation.</param>
+        /// <param name="startTime">The time the operation started.</param>
+        /// <param name="state">The current state of the operation.</param>
         public ElasticPoolActivity(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), System.DateTime? endTime = default(System.DateTime?), int? errorCode = default(int?), string errorMessage = default(string), int? errorSeverity = default(int?), string operation = default(string), string operationId = default(string), int? percentComplete = default(int?), int? requestedDatabaseDtuMax = default(int?), int? requestedDatabaseDtuMin = default(int?), int? requestedDtu = default(int?), string requestedElasticPoolName = default(string), long? requestedStorageLimitInGB = default(long?), string elasticPoolName = default(string), string serverName = default(string), System.DateTime? startTime = default(System.DateTime?), string state = default(string))
             : base(location, name, id, type, tags)
         {

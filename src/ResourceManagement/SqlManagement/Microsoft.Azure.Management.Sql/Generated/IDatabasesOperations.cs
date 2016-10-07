@@ -20,8 +20,7 @@ namespace Microsoft.Azure.Management.Sql
         /// Renames an Azure SQL Database.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the Resource Group to which the Azure SQL Database
-        /// Server belongs.
+        /// The name of the Resource Group to which the resource belongs.
         /// </param>
         /// <param name='serverName'>
         /// The name of the Azure SQL Database Server on which the Azure SQL
@@ -31,6 +30,7 @@ namespace Microsoft.Azure.Management.Sql
         /// The name of the Azure SQL Database to rename.
         /// </param>
         /// <param name='id'>
+        /// The target ID for the resource
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -45,6 +45,39 @@ namespace Microsoft.Azure.Management.Sql
         /// Thrown when a required parameter is null
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> RenameWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, string id = default(string), System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get a list of database engine audit records.
+        /// </summary>
+        /// <param name='resourceGroupName'>
+        /// The name of the Resource Group to which the resource belongs.
+        /// </param>
+        /// <param name='serverName'>
+        /// The name of the Azure SQL Database Server on which the Azure SQL
+        /// Database is hosted.
+        /// </param>
+        /// <param name='databaseName'>
+        /// The name of the Azure SQL Database for which database engine audit
+        /// records are retrieved.
+        /// </param>
+        /// <param name='odataQuery'>
+        /// OData parameters to apply to the operation.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ArmErrorResponseMessageException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<EngineAuditRecordResource>>> ListEngineAuditRecordsWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters> odataQuery = default(Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters>), System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Pause an Azure SQL Data Warehouse database.
         /// </summary>
@@ -633,7 +666,7 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ImportExportOperationStatusResponse>> BeginExportWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, ExportRequestParameters parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Gets the status of an import or export operation on an Azure SQL
+        /// The status of an import or export operation on an Azure SQL
         /// database given the operation ID.
         /// </summary>
         /// <param name='resourceGroupName'>
@@ -688,7 +721,7 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<GeoBackupList>> ListGeoBackupsWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<System.Collections.Generic.IEnumerable<GeoBackup>>> ListGeoBackupsWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns an Azure SQL Database geo backup.
         /// </summary>
@@ -742,7 +775,7 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DeletedDatabaseBackupList>> ListBackupsForDeletedDatabasesWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<System.Collections.Generic.IEnumerable<DeletedDatabaseBackup>>> ListBackupsForDeletedDatabasesWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns backup information for a deleted Azure SQL database  (a
         /// resource representing a deleted database that can be restored).
@@ -834,8 +867,7 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ReplicationLink>> GetReplicationLinkWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, string linkId, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins failover of the Azure SQL Database Replication Link with
-        /// the given id.
+        /// Failover the Azure SQL Database Replication Link with the given id.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -864,8 +896,7 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> FailoverReplicationLinkWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, string linkId, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins failover of the Azure SQL Database Replication Link with
-        /// the given id.
+        /// Failover the Azure SQL Database Replication Link with the given id.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -894,8 +925,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> BeginFailoverReplicationLinkWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, string linkId, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins a forced failover of the Azure SQL Database Replication
-        /// Link with the given id which may result in data loss.
+        /// Force failover the Azure SQL Database Replication Link with the
+        /// given id which may result in data loss.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -924,8 +955,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> FailoverReplicationLinkAllowDataLossWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, string linkId, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins a forced failover of the Azure SQL Database Replication
-        /// Link with the given id which may result in data loss.
+        /// Force failover the Azure SQL Database Replication Link with the
+        /// given id which may result in data loss.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -1012,7 +1043,7 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DatabaseSecureConnectionPolicy>> CreateOrUpdateSecureConnectionPolicyWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, DatabaseSecureConnectionPolicy parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DatabaseSecureConnectionPolicy>> SetSecureConnectionPolicyWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, DatabaseSecureConnectionPolicy parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns an Azure SQL Database secure connection policy.
         /// </summary>
@@ -1042,5 +1073,27 @@ namespace Microsoft.Azure.Management.Sql
         /// Thrown when a required parameter is null
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DatabaseSecureConnectionPolicy>> GetSecureConnectionPolicyWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get a list of database engine audit records.
+        /// </summary>
+        /// <param name='nextPageLink'>
+        /// The NextLink from the previous successful call to List operation.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="ArmErrorResponseMessageException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<EngineAuditRecordResource>>> ListEngineAuditRecordsNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }

@@ -28,23 +28,23 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="connectionType">Gets or Sets server connection type.
-        /// The ServerConnectonTypes enumeration contains all the valid
+        /// <param name="connectionType">The server connection type. The
+        /// ServerConnectonTypes enumeration contains all the valid
         /// connection types. Possible values include: 'Default', 'Proxy',
         /// 'Redirect'</param>
-        public ServerSecureConnectionPolicy(string name = default(string), string id = default(string), string connectionType = default(string))
+        public ServerSecureConnectionPolicy(string name = default(string), string id = default(string), ServerConnectonTypes? connectionType = default(ServerConnectonTypes?))
             : base(name, id)
         {
             ConnectionType = connectionType;
         }
 
         /// <summary>
-        /// Gets or Sets server connection type. The ServerConnectonTypes
+        /// Gets or sets the server connection type. The ServerConnectonTypes
         /// enumeration contains all the valid connection types. Possible
         /// values include: 'Default', 'Proxy', 'Redirect'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.connectionType")]
-        public string ConnectionType { get; set; }
+        public ServerConnectonTypes? ConnectionType { get; set; }
 
     }
 }

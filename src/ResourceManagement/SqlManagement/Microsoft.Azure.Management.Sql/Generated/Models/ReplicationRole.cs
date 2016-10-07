@@ -12,12 +12,18 @@ namespace Microsoft.Azure.Management.Sql.Models
     /// <summary>
     /// Defines values for ReplicationRole.
     /// </summary>
-    public static class ReplicationRole
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum ReplicationRole
     {
-        public const string Primary = "Primary";
-        public const string Secondary = "Secondary";
-        public const string NonReadableSecondary = "NonReadableSecondary";
-        public const string Source = "Source";
-        public const string Copy = "Copy";
+        [System.Runtime.Serialization.EnumMember(Value = "Primary")]
+        Primary,
+        [System.Runtime.Serialization.EnumMember(Value = "Secondary")]
+        Secondary,
+        [System.Runtime.Serialization.EnumMember(Value = "NonReadableSecondary")]
+        NonReadableSecondary,
+        [System.Runtime.Serialization.EnumMember(Value = "Source")]
+        Source,
+        [System.Runtime.Serialization.EnumMember(Value = "Copy")]
+        Copy
     }
 }

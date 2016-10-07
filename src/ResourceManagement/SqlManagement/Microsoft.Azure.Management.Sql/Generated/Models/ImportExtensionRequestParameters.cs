@@ -26,24 +26,22 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the ImportExtensionRequestParameters
         /// class.
         /// </summary>
-        /// <param name="name">Gets the name of the extenstion.</param>
-        /// <param name="type">Gets the type of the extenstion.</param>
-        /// <param name="operationMode">Gets the type of Import/Export
-        /// opertion being performed</param>
-        /// <param name="storageKeyType">Gets or sets the type of the storage
-        /// key to use. Valid values are StorageAccessKey and
-        /// SharedAccessKey.</param>
-        /// <param name="storageKey">Gets or sets the storage key to
-        /// use.</param>
-        /// <param name="storageUri">Gets or sets the storage uri to
-        /// use.</param>
-        /// <param name="administratorLogin">Gets or sets the name of the SQL
+        /// <param name="name">The name of the extenstion.</param>
+        /// <param name="type">The type of the extenstion.</param>
+        /// <param name="operationMode">The type of Import/Export opertion
+        /// being performed. Possible values include: 'Import',
+        /// 'Export'</param>
+        /// <param name="storageKeyType">The type of the storage key to use.
+        /// Possible values include: 'StorageAccessKey',
+        /// 'SharedAccessKey'</param>
+        /// <param name="storageKey">The storage key to use.</param>
+        /// <param name="storageUri">The storage uri to use.</param>
+        /// <param name="administratorLogin">The name of the SQL
         /// administrator.</param>
-        /// <param name="administratorLoginPassword">Gets or sets the password
-        /// of the SQL administrator.</param>
-        /// <param name="authenticationType">Gets or sets the authentication
-        /// type.</param>
-        public ImportExtensionRequestParameters(string name = default(string), string type = default(string), string operationMode = default(string), string storageKeyType = default(string), string storageKey = default(string), string storageUri = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string), string authenticationType = default(string))
+        /// <param name="administratorLoginPassword">The password of the SQL
+        /// administrator.</param>
+        /// <param name="authenticationType">The authentication type.</param>
+        public ImportExtensionRequestParameters(string name = default(string), string type = default(string), ImportExportOperationMode? operationMode = default(ImportExportOperationMode?), StorageKeyType? storageKeyType = default(StorageKeyType?), string storageKey = default(string), string storageUri = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string), string authenticationType = default(string))
         {
             Name = name;
             Type = type;
@@ -57,29 +55,30 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets the name of the extenstion.
+        /// Gets or sets the name of the extenstion.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets the type of the extenstion.
+        /// Gets or sets the type of the extenstion.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets the type of Import/Export opertion being performed
+        /// Gets or sets the type of Import/Export opertion being performed.
+        /// Possible values include: 'Import', 'Export'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.operationMode")]
-        public string OperationMode { get; set; }
+        public ImportExportOperationMode? OperationMode { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the storage key to use. Valid values are
-        /// StorageAccessKey and SharedAccessKey.
+        /// Gets or sets the type of the storage key to use. Possible values
+        /// include: 'StorageAccessKey', 'SharedAccessKey'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.storageKeyType")]
-        public string StorageKeyType { get; set; }
+        public StorageKeyType? StorageKeyType { get; set; }
 
         /// <summary>
         /// Gets or sets the storage key to use.

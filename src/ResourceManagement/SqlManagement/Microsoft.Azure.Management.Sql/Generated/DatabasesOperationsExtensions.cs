@@ -24,8 +24,7 @@ namespace Microsoft.Azure.Management.Sql
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the Resource Group to which the Azure SQL Database Server
-            /// belongs.
+            /// The name of the Resource Group to which the resource belongs.
             /// </param>
             /// <param name='serverName'>
             /// The name of the Azure SQL Database Server on which the Azure SQL Database
@@ -35,6 +34,7 @@ namespace Microsoft.Azure.Management.Sql
             /// The name of the Azure SQL Database to rename.
             /// </param>
             /// <param name='id'>
+            /// The target ID for the resource
             /// </param>
             public static void Rename(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, string id = default(string))
             {
@@ -48,8 +48,7 @@ namespace Microsoft.Azure.Management.Sql
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the Resource Group to which the Azure SQL Database Server
-            /// belongs.
+            /// The name of the Resource Group to which the resource belongs.
             /// </param>
             /// <param name='serverName'>
             /// The name of the Azure SQL Database Server on which the Azure SQL Database
@@ -59,6 +58,7 @@ namespace Microsoft.Azure.Management.Sql
             /// The name of the Azure SQL Database to rename.
             /// </param>
             /// <param name='id'>
+            /// The target ID for the resource
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -66,6 +66,62 @@ namespace Microsoft.Azure.Management.Sql
             public static async System.Threading.Tasks.Task RenameAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, string id = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 await operations.RenameWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, id, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
+            /// Get a list of database engine audit records.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Database Server on which the Azure SQL Database
+            /// is hosted.
+            /// </param>
+            /// <param name='databaseName'>
+            /// The name of the Azure SQL Database for which database engine audit records
+            /// are retrieved.
+            /// </param>
+            /// <param name='odataQuery'>
+            /// OData parameters to apply to the operation.
+            /// </param>
+            public static Microsoft.Rest.Azure.IPage<EngineAuditRecordResource> ListEngineAuditRecords(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters> odataQuery = default(Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters>))
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).ListEngineAuditRecordsAsync(resourceGroupName, serverName, databaseName, odataQuery), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a list of database engine audit records.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the Resource Group to which the resource belongs.
+            /// </param>
+            /// <param name='serverName'>
+            /// The name of the Azure SQL Database Server on which the Azure SQL Database
+            /// is hosted.
+            /// </param>
+            /// <param name='databaseName'>
+            /// The name of the Azure SQL Database for which database engine audit records
+            /// are retrieved.
+            /// </param>
+            /// <param name='odataQuery'>
+            /// OData parameters to apply to the operation.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Microsoft.Rest.Azure.IPage<EngineAuditRecordResource>> ListEngineAuditRecordsAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters> odataQuery = default(Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListEngineAuditRecordsWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, odataQuery, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -1046,8 +1102,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Gets the status of an import or export operation on an Azure SQL database
-            /// given the operation ID.
+            /// The status of an import or export operation on an Azure SQL database given
+            /// the operation ID.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1070,8 +1126,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Gets the status of an import or export operation on an Azure SQL database
-            /// given the operation ID.
+            /// The status of an import or export operation on an Azure SQL database given
+            /// the operation ID.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1111,7 +1167,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='serverName'>
             /// The name of the Azure SQL Server
             /// </param>
-            public static GeoBackupList ListGeoBackups(this IDatabasesOperations operations, string resourceGroupName, string serverName)
+            public static System.Collections.Generic.IEnumerable<GeoBackup> ListGeoBackups(this IDatabasesOperations operations, string resourceGroupName, string serverName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).ListGeoBackupsAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -1131,7 +1187,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<GeoBackupList> ListGeoBackupsAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<System.Collections.Generic.IEnumerable<GeoBackup>> ListGeoBackupsAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListGeoBackupsWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1198,7 +1254,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='serverName'>
             /// The name of the Azure SQL Server
             /// </param>
-            public static DeletedDatabaseBackupList ListBackupsForDeletedDatabases(this IDatabasesOperations operations, string resourceGroupName, string serverName)
+            public static System.Collections.Generic.IEnumerable<DeletedDatabaseBackup> ListBackupsForDeletedDatabases(this IDatabasesOperations operations, string resourceGroupName, string serverName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).ListBackupsForDeletedDatabasesAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -1219,7 +1275,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<DeletedDatabaseBackupList> ListBackupsForDeletedDatabasesAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<System.Collections.Generic.IEnumerable<DeletedDatabaseBackup>> ListBackupsForDeletedDatabasesAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListBackupsForDeletedDatabasesWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1379,8 +1435,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins failover of the Azure SQL Database Replication Link with the given
-            /// id.
+            /// Failover the Azure SQL Database Replication Link with the given id.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1404,8 +1459,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins failover of the Azure SQL Database Replication Link with the given
-            /// id.
+            /// Failover the Azure SQL Database Replication Link with the given id.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1432,8 +1486,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins failover of the Azure SQL Database Replication Link with the given
-            /// id.
+            /// Failover the Azure SQL Database Replication Link with the given id.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1457,8 +1510,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins failover of the Azure SQL Database Replication Link with the given
-            /// id.
+            /// Failover the Azure SQL Database Replication Link with the given id.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1485,8 +1537,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins a forced failover of the Azure SQL Database Replication Link with
-            /// the given id which may result in data loss.
+            /// Force failover the Azure SQL Database Replication Link with the given id
+            /// which may result in data loss.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1510,8 +1562,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins a forced failover of the Azure SQL Database Replication Link with
-            /// the given id which may result in data loss.
+            /// Force failover the Azure SQL Database Replication Link with the given id
+            /// which may result in data loss.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1538,8 +1590,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins a forced failover of the Azure SQL Database Replication Link with
-            /// the given id which may result in data loss.
+            /// Force failover the Azure SQL Database Replication Link with the given id
+            /// which may result in data loss.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1563,8 +1615,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins a forced failover of the Azure SQL Database Replication Link with
-            /// the given id which may result in data loss.
+            /// Force failover the Azure SQL Database Replication Link with the given id
+            /// which may result in data loss.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1655,9 +1707,9 @@ namespace Microsoft.Azure.Management.Sql
             /// The required parameters for createing or updating a secure connection
             /// policy.
             /// </param>
-            public static DatabaseSecureConnectionPolicy CreateOrUpdateSecureConnectionPolicy(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseSecureConnectionPolicy parameters)
+            public static DatabaseSecureConnectionPolicy SetSecureConnectionPolicy(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseSecureConnectionPolicy parameters)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).CreateOrUpdateSecureConnectionPolicyAsync(resourceGroupName, serverName, databaseName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).SetSecureConnectionPolicyAsync(resourceGroupName, serverName, databaseName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1682,9 +1734,9 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<DatabaseSecureConnectionPolicy> CreateOrUpdateSecureConnectionPolicyAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseSecureConnectionPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<DatabaseSecureConnectionPolicy> SetSecureConnectionPolicyAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseSecureConnectionPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.CreateOrUpdateSecureConnectionPolicyWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.SetSecureConnectionPolicyWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1733,6 +1785,40 @@ namespace Microsoft.Azure.Management.Sql
             public static async System.Threading.Tasks.Task<DatabaseSecureConnectionPolicy> GetSecureConnectionPolicyAsync(this IDatabasesOperations operations, string resourceGroupName, string serverName, string databaseName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetSecureConnectionPolicyWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a list of database engine audit records.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='nextPageLink'>
+            /// The NextLink from the previous successful call to List operation.
+            /// </param>
+            public static Microsoft.Rest.Azure.IPage<EngineAuditRecordResource> ListEngineAuditRecordsNext(this IDatabasesOperations operations, string nextPageLink)
+            {
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IDatabasesOperations)s).ListEngineAuditRecordsNextAsync(nextPageLink), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a list of database engine audit records.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='nextPageLink'>
+            /// The NextLink from the previous successful call to List operation.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Microsoft.Rest.Azure.IPage<EngineAuditRecordResource>> ListEngineAuditRecordsNextAsync(this IDatabasesOperations operations, string nextPageLink, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            {
+                using (var _result = await operations.ListEngineAuditRecordsNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

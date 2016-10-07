@@ -26,27 +26,27 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="partnerServer">Gets the name of the Azure SQL Server
+        /// <param name="partnerServer">The name of the Azure SQL Server
         /// hosting the partner Azure SQL Database.</param>
-        /// <param name="partnerDatabase">Gets the name of the partner Azure
-        /// SQL Database.</param>
-        /// <param name="partnerLocation">Gets the Azure Region of the partner
+        /// <param name="partnerDatabase">The name of the partner Azure SQL
+        /// Database.</param>
+        /// <param name="partnerLocation">The Azure Region of the partner
         /// Azure SQL Database.</param>
-        /// <param name="role">Gets the role of the Azure SQL Database in the
+        /// <param name="role">The role of the Azure SQL Database in the
         /// replication link. Possible values include: 'Primary',
         /// 'Secondary', 'NonReadableSecondary', 'Source', 'Copy'</param>
-        /// <param name="partnerRole">Gets the role of the partner Azure SQL
+        /// <param name="partnerRole">The role of the partner Azure SQL
         /// Database in the replication link. Possible values include:
         /// 'Primary', 'Secondary', 'NonReadableSecondary', 'Source',
         /// 'Copy'</param>
-        /// <param name="startTime">Gets the start time for the replication
+        /// <param name="startTime">The start time for the replication
         /// link.</param>
-        /// <param name="percentComplete">Gets the percentage of seeding
-        /// complete for the replication link.</param>
-        /// <param name="replicationState">Gets the replication state for the
+        /// <param name="percentComplete">The percentage of seeding complete
+        /// for the replication link.</param>
+        /// <param name="replicationState">The replication state for the
         /// replication link. Possible values include: 'PENDING', 'SEEDING',
         /// 'CATCH_UP', 'SUSPENDED'</param>
-        public ReplicationLink(string name = default(string), string id = default(string), string partnerServer = default(string), string partnerDatabase = default(string), string partnerLocation = default(string), string role = default(string), string partnerRole = default(string), System.DateTime? startTime = default(System.DateTime?), string percentComplete = default(string), string replicationState = default(string))
+        public ReplicationLink(string name = default(string), string id = default(string), string partnerServer = default(string), string partnerDatabase = default(string), string partnerLocation = default(string), ReplicationRole? role = default(ReplicationRole?), ReplicationRole? partnerRole = default(ReplicationRole?), System.DateTime? startTime = default(System.DateTime?), string percentComplete = default(string), string replicationState = default(string))
             : base(name, id)
         {
             PartnerServer = partnerServer;
@@ -84,7 +84,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// 'NonReadableSecondary', 'Source', 'Copy'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.role")]
-        public string Role { get; private set; }
+        public ReplicationRole? Role { get; private set; }
 
         /// <summary>
         /// Gets the role of the partner Azure SQL Database in the replication
@@ -92,7 +92,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// 'NonReadableSecondary', 'Source', 'Copy'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.partnerRole")]
-        public string PartnerRole { get; private set; }
+        public ReplicationRole? PartnerRole { get; private set; }
 
         /// <summary>
         /// Gets the start time for the replication link.

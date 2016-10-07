@@ -13,7 +13,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     /// <summary>
     /// Subresource properties
     /// </summary>
-    public partial class SubResource : Microsoft.Rest.Azure.IResource
+    public partial class SubResource
     {
         /// <summary>
         /// Initializes a new instance of the SubResource class.

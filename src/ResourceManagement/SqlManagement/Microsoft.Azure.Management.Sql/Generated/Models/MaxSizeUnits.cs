@@ -12,11 +12,16 @@ namespace Microsoft.Azure.Management.Sql.Models
     /// <summary>
     /// Defines values for MaxSizeUnits.
     /// </summary>
-    public static class MaxSizeUnits
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum MaxSizeUnits
     {
-        public const string Megabytes = "Megabytes";
-        public const string Gigabytes = "Gigabytes";
-        public const string Terabytes = "Terabytes";
-        public const string Petabytes = "Petabytes";
+        [System.Runtime.Serialization.EnumMember(Value = "Megabytes")]
+        Megabytes,
+        [System.Runtime.Serialization.EnumMember(Value = "Gigabytes")]
+        Gigabytes,
+        [System.Runtime.Serialization.EnumMember(Value = "Terabytes")]
+        Terabytes,
+        [System.Runtime.Serialization.EnumMember(Value = "Petabytes")]
+        Petabytes
     }
 }

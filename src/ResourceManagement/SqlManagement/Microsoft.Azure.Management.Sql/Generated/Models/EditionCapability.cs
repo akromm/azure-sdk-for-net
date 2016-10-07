@@ -11,7 +11,8 @@ namespace Microsoft.Azure.Management.Sql.Models
     using System.Linq;
 
     /// <summary>
-    /// Represents the Azure SQL Server edition capabilities.
+    /// Represents the Azure SQL Server edition capabilities. This represents
+    /// the service tier of the database (Eg: Basic, Standard, Premium, ...).
     /// </summary>
     public partial class EditionCapability
     {
@@ -23,13 +24,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the EditionCapability class.
         /// </summary>
-        /// <param name="name">Gets the edition name.</param>
-        /// <param name="status">Gets the status of the Azure SQL Server
-        /// edition. Possible values include: 'Visible', 'Available',
-        /// 'Default'</param>
-        /// <param name="supportedServiceLevelObjectives">Gets the list of
+        /// <param name="name">The edition name (eg: Basic, Standard, Premium,
+        /// ...).</param>
+        /// <param name="status">The status of the Azure SQL Database edition.
+        /// Possible values include: 'Visible', 'Available', 'Default'</param>
+        /// <param name="supportedServiceLevelObjectives">The list of
         /// supported Service Objectives for the edition.</param>
-        public EditionCapability(string name = default(string), string status = default(string), System.Collections.Generic.IList<ServiceObjectiveCapability> supportedServiceLevelObjectives = default(System.Collections.Generic.IList<ServiceObjectiveCapability>))
+        public EditionCapability(string name = default(string), CapabilityStatus? status = default(CapabilityStatus?), System.Collections.Generic.IList<ServiceObjectiveCapability> supportedServiceLevelObjectives = default(System.Collections.Generic.IList<ServiceObjectiveCapability>))
         {
             Name = name;
             Status = status;
@@ -37,17 +38,17 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets the edition name.
+        /// Gets the edition name (eg: Basic, Standard, Premium, ...).
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
 
         /// <summary>
-        /// Gets the status of the Azure SQL Server edition. Possible values
+        /// Gets the status of the Azure SQL Database edition. Possible values
         /// include: 'Visible', 'Available', 'Default'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "status")]
-        public string Status { get; private set; }
+        public CapabilityStatus? Status { get; private set; }
 
         /// <summary>
         /// Gets the list of supported Service Objectives for the edition.

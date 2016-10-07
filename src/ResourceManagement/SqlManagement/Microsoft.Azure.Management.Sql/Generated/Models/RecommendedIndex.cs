@@ -29,30 +29,30 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="action">Gets the proposed index action. We suggest
-        /// user to create missing index, drop unused index or to rebuild
-        /// already existing index to improve its performance. Possible
-        /// values are 'Create', 'Drop', 'Rebuild'.</param>
-        /// <param name="state">Gets the state recommendation is in. Current
+        /// <param name="action">The proposed index action. We suggest user to
+        /// create missing index, drop unused index or to rebuild already
+        /// existing index to improve its performance. Possible values are
+        /// 'Create', 'Drop', 'Rebuild'.</param>
+        /// <param name="state">The state recommendation is in. Current
         /// options are: 'Active', 'Pending', 'Executing', 'Verifying',
         /// 'Pending Revert', 'Reverting', 'Reverted', 'Ignored', 'Expired',
         /// 'Blocked', 'Success'.</param>
-        /// <param name="created">Gets the UTC datetime showing when this
-        /// resource was created.</param>
-        /// <param name="lastModified">Gets the UTC datetime of when was this
+        /// <param name="created">The UTC datetime showing when this resource
+        /// was created.</param>
+        /// <param name="lastModified">The UTC datetime of when was this
         /// resource last changed.</param>
-        /// <param name="indexType">Gets the type of index (CLUSTERED,
+        /// <param name="indexType">The type of index (CLUSTERED,
         /// NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)</param>
-        /// <param name="schema">Gets the schema where table to build index
-        /// over resides</param>
-        /// <param name="table">Gets the table on which to build index.</param>
+        /// <param name="schema">The schema where table to build index over
+        /// resides</param>
+        /// <param name="table">The table on which to build index.</param>
         /// <param name="columns">Columns over which to build index</param>
-        /// <param name="includedColumns">Gets the list of column names to be
+        /// <param name="includedColumns">The list of column names to be
         /// included in the index</param>
-        /// <param name="indexScript">Gets the full build index script</param>
-        /// <param name="estimatedImpact">Gets the estimated impact of doing
+        /// <param name="indexScript">The full build index script</param>
+        /// <param name="estimatedImpact">The estimated impact of doing
         /// recommended index action.</param>
-        /// <param name="reportedImpact">Gets the values reported after index
+        /// <param name="reportedImpact">The values reported after index
         /// action is complete.</param>
         public RecommendedIndex(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string action = default(string), string state = default(string), System.DateTime? created = default(System.DateTime?), System.DateTime? lastModified = default(System.DateTime?), string indexType = default(string), string schema = default(string), string table = default(string), System.Collections.Generic.IList<string> columns = default(System.Collections.Generic.IList<string>), System.Collections.Generic.IList<string> includedColumns = default(System.Collections.Generic.IList<string>), string indexScript = default(string), System.Collections.Generic.IList<OperationImpact> estimatedImpact = default(System.Collections.Generic.IList<OperationImpact>), System.Collections.Generic.IList<OperationImpact> reportedImpact = default(System.Collections.Generic.IList<OperationImpact>))
             : base(location, name, id, type, tags)

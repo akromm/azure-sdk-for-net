@@ -10,6 +10,9 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
+    /// <summary>
+    /// represents and error message.
+    /// </summary>
     public partial class ArmErrorResponseMessage
     {
         /// <summary>

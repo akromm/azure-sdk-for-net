@@ -23,16 +23,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServerUpgradeProperties class.
         /// </summary>
-        /// <param name="version">Gets or sets the version for the Azure SQL
-        /// Server being upgraded.</param>
-        /// <param name="scheduleUpgradeAfterUtcDateTime">Gets or sets the
-        /// earliest time to upgrade the Azure SQL Server.</param>
-        /// <param name="databaseCollection">Gets or sets the collection of
-        /// recommended database properties to upgrade the Azure SQL
-        /// Server.</param>
-        /// <param name="elasticPoolCollection">Gets or sets the collection of
-        /// recommended elastic pool properties to upgrade the Azure SQL
-        /// Server.</param>
+        /// <param name="version">The version for the Azure SQL Server being
+        /// upgraded.</param>
+        /// <param name="scheduleUpgradeAfterUtcDateTime">The earliest time to
+        /// upgrade the Azure SQL Server.</param>
+        /// <param name="databaseCollection">The collection of recommended
+        /// database properties to upgrade the Azure SQL Server.</param>
+        /// <param name="elasticPoolCollection">The collection of recommended
+        /// elastic pool properties to upgrade the Azure SQL Server.</param>
         public ServerUpgradeProperties(string version, System.DateTime? scheduleUpgradeAfterUtcDateTime = default(System.DateTime?), System.Collections.Generic.IList<RecommendedDatabaseProperties> databaseCollection = default(System.Collections.Generic.IList<RecommendedDatabaseProperties>), System.Collections.Generic.IList<UpgradeRecommendedElasticPoolProperties> elasticPoolCollection = default(System.Collections.Generic.IList<UpgradeRecommendedElasticPoolProperties>))
         {
             Version = version;

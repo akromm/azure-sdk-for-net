@@ -28,13 +28,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="proxyDnsName">Gets the Data Security Proxy DNS
+        /// <param name="proxyDnsName">The Data Security Proxy DNS
         /// name.</param>
-        /// <param name="proxyPort">Gets the Data Security Proxy port
+        /// <param name="proxyPort">The Data Security Proxy port
         /// number.</param>
-        /// <param name="securityEnabledAccess">Gets whether block direct
-        /// access is applied.</param>
-        public DatabaseSecureConnectionPolicy(string name = default(string), string id = default(string), string proxyDnsName = default(string), string proxyPort = default(string), string securityEnabledAccess = default(string))
+        /// <param name="securityEnabledAccess">Whether or not block direct
+        /// access is applied. Possible values include: 'Required',
+        /// 'Optional'</param>
+        public DatabaseSecureConnectionPolicy(string name = default(string), string id = default(string), string proxyDnsName = default(string), string proxyPort = default(string), DatabaseSecureConnectionAccess? securityEnabledAccess = default(DatabaseSecureConnectionAccess?))
             : base(name, id)
         {
             ProxyDnsName = proxyDnsName;
@@ -55,10 +56,11 @@ namespace Microsoft.Azure.Management.Sql.Models
         public string ProxyPort { get; private set; }
 
         /// <summary>
-        /// Gets whether block direct access is applied.
+        /// Gets or sets whether or not block direct access is applied.
+        /// Possible values include: 'Required', 'Optional'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.securityEnabledAccess")]
-        public string SecurityEnabledAccess { get; set; }
+        public DatabaseSecureConnectionAccess? SecurityEnabledAccess { get; set; }
 
     }
 }

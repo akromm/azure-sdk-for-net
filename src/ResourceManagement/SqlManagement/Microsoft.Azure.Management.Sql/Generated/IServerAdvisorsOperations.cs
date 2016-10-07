@@ -12,24 +12,21 @@ namespace Microsoft.Azure.Management.Sql
     using Models;
 
     /// <summary>
-    /// EngineAuditRecordsOperations operations.
+    /// ServerAdvisorsOperations operations.
     /// </summary>
-    public partial interface IEngineAuditRecordsOperations
+    public partial interface IServerAdvisorsOperations
     {
         /// <summary>
-        /// Get a list of database engine audit records.
+        /// Returns details of an Azure SQL Database Server Advisor.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the Resource Group to which the Azure SQL Database
-        /// Server belongs.
+        /// The name of the Resource Group to which the resource belongs.
         /// </param>
         /// <param name='serverName'>
-        /// The name of the Azure SQL Database Server on which the Azure SQL
-        /// Database is hosted.
+        /// The name of the Azure SQL Database Server.
         /// </param>
-        /// <param name='databaseName'>
-        /// The name of the Azure SQL Database for which database engine audit
-        /// records are retrieved.
+        /// <param name='advisorName'>
+        /// The name of the Azure SQL Database Server Advisor.
         /// </param>
         /// <param name='odataQuery'>
         /// OData parameters to apply to the operation.
@@ -49,12 +46,21 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<EngineAuditRecordResource>>> ListWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters> odataQuery = default(Microsoft.Rest.Azure.OData.ODataQuery<EngineAuditRecordsFilterParameters>), System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<AdvisorResource>> GetWithHttpMessagesAsync(string resourceGroupName, string serverName, string advisorName, Microsoft.Rest.Azure.OData.ODataQuery<AdvisorResource> odataQuery = default(Microsoft.Rest.Azure.OData.ODataQuery<AdvisorResource>), System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get a list of database engine audit records.
+        /// Updates an Azure SQL Database Server Advisor.
         /// </summary>
-        /// <param name='nextPageLink'>
-        /// The NextLink from the previous successful call to List operation.
+        /// <param name='resourceGroupName'>
+        /// The name of the Resource Group to which the resource belongs.
+        /// </param>
+        /// <param name='serverName'>
+        /// The name of the Azure SQL Database Server.
+        /// </param>
+        /// <param name='advisorName'>
+        /// The name of the Azure SQL Database Server Advisor.
+        /// </param>
+        /// <param name='advisor'>
+        /// The requested advisor resource state.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -71,6 +77,6 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<Microsoft.Rest.Azure.IPage<EngineAuditRecordResource>>> ListNextWithHttpMessagesAsync(string nextPageLink, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<AdvisorResource>> UpdateWithHttpMessagesAsync(string resourceGroupName, string serverName, string advisorName, AdvisorResource advisor, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }

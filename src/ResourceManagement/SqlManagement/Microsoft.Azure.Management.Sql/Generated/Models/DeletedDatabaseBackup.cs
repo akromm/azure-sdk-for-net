@@ -26,24 +26,22 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="databaseName">Gets the Azure SQL Database
-        /// name.</param>
-        /// <param name="creationDate">Gets the creation date of the Azure SQL
+        /// <param name="databaseName">The Azure SQL Database name.</param>
+        /// <param name="creationDate">The creation date of the Azure SQL
         /// Database.</param>
-        /// <param name="deletionDate">Gets the deletion date of the Azure SQL
+        /// <param name="deletionDate">The deletion date of the Azure SQL
         /// Database.</param>
-        /// <param name="earliestRestoreDate">Gets the recovery period starte
-        /// date of the Azure SQL Database. This records the start date and
-        /// time when recovery is available for this Azure SQL
-        /// Database.</param>
-        /// <param name="edition">Gets the edition of the Azure SQL
-        /// Database.</param>
-        /// <param name="maxSizeBytes">Gets the max size of the Azure SQL
-        /// Database expressed in bytes.</param>
-        /// <param name="serviceLevelObjective">Gets the Service Level
-        /// Objective of the Azure SQL Database.</param>
-        /// <param name="elasticPoolName">Gets the name of the Azure SQL
-        /// Elastic Pool the database is in.</param>
+        /// <param name="earliestRestoreDate">The recovery period starte date
+        /// of the Azure SQL Database. This records the start date and time
+        /// when recovery is available for this Azure SQL Database.</param>
+        /// <param name="edition">The edition of the Azure SQL Database.
+        /// Possible values include: 'Basic', 'Standard', 'Premium'</param>
+        /// <param name="maxSizeBytes">The max size of the Azure SQL Database
+        /// expressed in bytes.</param>
+        /// <param name="serviceLevelObjective">The Service Level Objective of
+        /// the Azure SQL Database.</param>
+        /// <param name="elasticPoolName">The name of the Azure SQL Elastic
+        /// Pool the database is in.</param>
         public DeletedDatabaseBackup(string name = default(string), string id = default(string), string databaseName = default(string), System.DateTime? creationDate = default(System.DateTime?), System.DateTime? deletionDate = default(System.DateTime?), System.DateTime? earliestRestoreDate = default(System.DateTime?), string edition = default(string), long? maxSizeBytes = default(long?), string serviceLevelObjective = default(string), string elasticPoolName = default(string))
             : base(name, id)
         {
@@ -84,7 +82,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         public System.DateTime? EarliestRestoreDate { get; private set; }
 
         /// <summary>
-        /// Gets the edition of the Azure SQL Database.
+        /// Gets the edition of the Azure SQL Database. Possible values
+        /// include: 'Basic', 'Standard', 'Premium'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.edition")]
         public string Edition { get; private set; }

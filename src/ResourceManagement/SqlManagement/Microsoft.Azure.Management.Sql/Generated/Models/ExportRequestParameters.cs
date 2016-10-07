@@ -23,20 +23,17 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ExportRequestParameters class.
         /// </summary>
-        /// <param name="storageKeyType">Gets or sets the type of the storage
-        /// key to use. Valid values are StorageAccessKey and
-        /// SharedAccessKey.</param>
-        /// <param name="storageKey">Gets or sets the storage key to
-        /// use.</param>
-        /// <param name="storageUri">Gets or sets the storage uri to
-        /// use.</param>
-        /// <param name="administratorLogin">Gets or sets the name of the SQL
+        /// <param name="storageKeyType">The type of the storage key to use.
+        /// Possible values include: 'StorageAccessKey',
+        /// 'SharedAccessKey'</param>
+        /// <param name="storageKey">The storage key to use.</param>
+        /// <param name="storageUri">The storage uri to use.</param>
+        /// <param name="administratorLogin">The name of the SQL
         /// administrator.</param>
-        /// <param name="administratorLoginPassword">Gets or sets the password
-        /// of the SQL administrator.</param>
-        /// <param name="authenticationType">Gets or sets the authentication
-        /// type.</param>
-        public ExportRequestParameters(string storageKeyType = default(string), string storageKey = default(string), string storageUri = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string), string authenticationType = default(string))
+        /// <param name="administratorLoginPassword">The password of the SQL
+        /// administrator.</param>
+        /// <param name="authenticationType">The authentication type.</param>
+        public ExportRequestParameters(StorageKeyType? storageKeyType = default(StorageKeyType?), string storageKey = default(string), string storageUri = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string), string authenticationType = default(string))
         {
             StorageKeyType = storageKeyType;
             StorageKey = storageKey;
@@ -47,11 +44,11 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets or sets the type of the storage key to use. Valid values are
-        /// StorageAccessKey and SharedAccessKey.
+        /// Gets or sets the type of the storage key to use. Possible values
+        /// include: 'StorageAccessKey', 'SharedAccessKey'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "storageKeyType")]
-        public string StorageKeyType { get; set; }
+        public StorageKeyType? StorageKeyType { get; set; }
 
         /// <summary>
         /// Gets or sets the storage key to use.

@@ -26,11 +26,12 @@ namespace Microsoft.Azure.Management.Sql
         /// The name of the Azure SQL Server
         /// </param>
         /// <param name='databaseName'>
-        /// The name of the Azure SQL Database for which the data masking rule
-        /// applies.
+        /// The name of the Azure SQL Database for which the data masking
+        /// policy applies.
         /// </param>
         /// <param name='parameters'>
-        /// The required parameters for createing or updating a firewall rule.
+        /// The required parameters for creating or updating a data masking
+        /// policy.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -78,7 +79,7 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DataMaskingPolicy>> GetPolicyWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Creates or updates an Azure SQL Server Firewall rule.
+        /// Creates or updates an Azure SQL Database data masking rule.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.

@@ -10,6 +10,9 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
+    /// <summary>
+    /// Supported properties when using $filter
+    /// </summary>
     public partial class EngineAuditRecordsFilterParameters
     {
         /// <summary>
@@ -22,11 +25,12 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the
         /// EngineAuditRecordsFilterParameters class.
         /// </summary>
-        public EngineAuditRecordsFilterParameters(System.DateTime? eventTime = default(System.DateTime?), bool? showSystemLogs = default(bool?), bool? showServerRecords = default(bool?))
+        public EngineAuditRecordsFilterParameters(System.DateTime? eventTime = default(System.DateTime?), bool? showSystemLogs = default(bool?), bool? showServerRecords = default(bool?), bool? showSecurityAlertsRecords = default(bool?))
         {
             EventTime = eventTime;
             ShowSystemLogs = showSystemLogs;
             ShowServerRecords = showServerRecords;
+            ShowSecurityAlertsRecords = showSecurityAlertsRecords;
         }
 
         /// <summary>
@@ -43,6 +47,11 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "showServerRecords")]
         public bool? ShowServerRecords { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty(PropertyName = "showSecurityAlertsRecords")]
+        public bool? ShowSecurityAlertsRecords { get; set; }
 
     }
 }

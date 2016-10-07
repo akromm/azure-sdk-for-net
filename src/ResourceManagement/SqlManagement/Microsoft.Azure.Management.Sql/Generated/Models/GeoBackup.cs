@@ -26,14 +26,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="edition">Gets the edition of the Azure SQL
+        /// <param name="edition">The edition of the Azure SQL
         /// Database.</param>
-        /// <param name="serviceLevelObjective">Gets the current service level
+        /// <param name="serviceLevelObjective">The current service level
         /// objective name for the database.</param>
-        /// <param name="elasticPoolName">Gets the elastic pool name for the
+        /// <param name="elasticPoolName">The elastic pool name for the
         /// database.</param>
-        /// <param name="lastAvailableBackupDate">Gets the last available
-        /// backup date.</param>
+        /// <param name="lastAvailableBackupDate">The last available backup
+        /// date.</param>
         public GeoBackup(string name = default(string), string id = default(string), string edition = default(string), string serviceLevelObjective = default(string), string elasticPoolName = default(string), System.DateTime? lastAvailableBackupDate = default(System.DateTime?))
             : base(name, id)
         {

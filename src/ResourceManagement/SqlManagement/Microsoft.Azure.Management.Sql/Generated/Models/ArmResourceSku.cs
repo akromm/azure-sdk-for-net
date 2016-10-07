@@ -11,7 +11,7 @@ namespace Microsoft.Azure.Management.Sql.Models
     using System.Linq;
 
     /// <summary>
-    /// Respresents a SKU on an ARM resource
+    /// Represents an ARM Resource SKU
     /// </summary>
     public partial class ArmResourceSku
     {

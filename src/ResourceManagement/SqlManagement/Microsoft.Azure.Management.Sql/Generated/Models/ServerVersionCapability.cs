@@ -23,13 +23,12 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServerVersionCapability class.
         /// </summary>
-        /// <param name="name">Gets the server version name.</param>
-        /// <param name="status">Gets the status of the Azure SQL Server
-        /// version. Possible values include: 'Visible', 'Available',
-        /// 'Default'</param>
-        /// <param name="supportedEditions">Gets the list of supported Azure
-        /// SQL Server editions.</param>
-        public ServerVersionCapability(string name = default(string), string status = default(string), System.Collections.Generic.IList<EditionCapability> supportedEditions = default(System.Collections.Generic.IList<EditionCapability>))
+        /// <param name="name">The server version name.</param>
+        /// <param name="status">The status of the Azure SQL Server version.
+        /// Possible values include: 'Visible', 'Available', 'Default'</param>
+        /// <param name="supportedEditions">The list of supported Azure SQL
+        /// Server editions.</param>
+        public ServerVersionCapability(string name = default(string), CapabilityStatus? status = default(CapabilityStatus?), System.Collections.Generic.IList<EditionCapability> supportedEditions = default(System.Collections.Generic.IList<EditionCapability>))
         {
             Name = name;
             Status = status;
@@ -47,7 +46,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// include: 'Visible', 'Available', 'Default'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "status")]
-        public string Status { get; private set; }
+        public CapabilityStatus? Status { get; private set; }
 
         /// <summary>
         /// Gets the list of supported Azure SQL Server editions.

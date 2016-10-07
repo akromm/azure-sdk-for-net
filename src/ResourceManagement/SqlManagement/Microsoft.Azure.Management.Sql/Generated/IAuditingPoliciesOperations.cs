@@ -12,9 +12,9 @@ namespace Microsoft.Azure.Management.Sql
     using Models;
 
     /// <summary>
-    /// AuditingPolicyOperations operations.
+    /// AuditingPoliciesOperations operations.
     /// </summary>
-    public partial interface IAuditingPolicyOperations
+    public partial interface IAuditingPoliciesOperations
     {
         /// <summary>
         /// Creates or updates an Azure SQL Database auditing policy.
@@ -48,7 +48,7 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DatabaseAuditingPolicy>> CreateOrUpdateDatebasePolicyWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, DatabaseAuditingPolicy parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<DatabaseAuditingPolicy>> CreateOrUpdateDatabasePolicyWithHttpMessagesAsync(string resourceGroupName, string serverName, string databaseName, DatabaseAuditingPolicy parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns an Azure SQL Database auditing policy.
         /// </summary>

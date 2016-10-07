@@ -170,7 +170,7 @@ namespace Microsoft.Azure.Management.Sql
         /// The name of the Azure SQL Server
         /// </param>
         /// <param name='serverUpgradeProperties'>
-        /// Gets or sets the properties of the Azure SQL Server Upgrade.
+        /// The properties of the Azure SQL Server Upgrade.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -429,7 +429,7 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ImportExportOperationStatusResponse>> BeginImportDatabaseWithHttpMessagesAsync(string resourceGroupName, string serverName, ImportRequestParameters parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Gets the status of an import operation given the operation ID.
+        /// The status of an import operation given the operation ID.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -481,7 +481,7 @@ namespace Microsoft.Azure.Management.Sql
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ServerDisasterRecoveryConfigurationList>> ListDisasterRecoveryConfigurationsWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<System.Collections.Generic.IEnumerable<ServerDisasterRecoveryConfiguration>>> ListDisasterRecoveryConfigurationsWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns information about an Azure SQL Server disaster recovery
         /// configurations.
@@ -540,10 +540,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> DeleteDisasterRecoveryConfigurationWithHttpMessagesAsync(string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins creating a new or updating an existing Azure SQL Server
-        /// disaster recovery configuration. To determine the status of the
-        /// operation call
-        /// GetServerDisasterRecoveryConfigurationOperationStatus.
+        /// Starts creating a new or updating an existing Azure SQL Server
+        /// disaster recovery configuration.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -576,10 +574,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ServerDisasterRecoveryConfiguration>> CreateOrUpdateDisasterRecoveryConfigurationWithHttpMessagesAsync(string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, ServerDisasterRecoveryConfiguration parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins creating a new or updating an existing Azure SQL Server
-        /// disaster recovery configuration. To determine the status of the
-        /// operation call
-        /// GetServerDisasterRecoveryConfigurationOperationStatus.
+        /// Starts creating a new or updating an existing Azure SQL Server
+        /// disaster recovery configuration.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -612,7 +608,7 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ServerDisasterRecoveryConfiguration>> BeginCreateOrUpdateDisasterRecoveryConfigurationWithHttpMessagesAsync(string resourceGroupName, string serverName, string serverDisasterRecoveryConfigurationName, ServerDisasterRecoveryConfiguration parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins failover for the Azure SQL server disaster recovery
+        /// Starts a failover for the Azure SQL server disaster recovery
         /// configuration with the given name.
         /// </summary>
         /// <param name='serverDisasterRecoveryConfigurationName'>
@@ -666,10 +662,9 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> ForceFailoverAllowDataLossDisasterRecoveryConfigurationWithHttpMessagesAsync(string serverDisasterRecoveryConfigurationName, string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins creating a new Azure SQL Server Active Directory
-        /// Administrator or updating an existing Azure SQL Server Active
-        /// Directory Administrator. To determine the status of the operation
-        /// call GetServerAdministratorOperationStatus.
+        /// Creates a new Azure SQL Server Active Directory Administrator or
+        /// updates an existing Azure SQL Server Active Directory
+        /// Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -701,10 +696,9 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ServerAzureADAdministrator>> CreateOrUpdateAzureADAdministratorWithHttpMessagesAsync(string resourceGroupName, string serverName, string administratorName, ServerAzureADAdministrator parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins creating a new Azure SQL Server Active Directory
-        /// Administrator or updating an existing Azure SQL Server Active
-        /// Directory Administrator. To determine the status of the operation
-        /// call GetServerAdministratorOperationStatus.
+        /// Creates a new Azure SQL Server Active Directory Administrator or
+        /// updates an existing Azure SQL Server Active Directory
+        /// Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -736,9 +730,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ServerAzureADAdministrator>> BeginCreateOrUpdateAzureADAdministratorWithHttpMessagesAsync(string resourceGroupName, string serverName, string administratorName, ServerAzureADAdministrator parameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins deleting an existing Azure SQL Server Active Directory
-        /// Administrator.To determine the status of the operation call
-        /// GetServerAdministratorDeleteOperationStatus.
+        /// Deletes an existing Azure SQL Server Active Directory
+        /// Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -763,9 +756,8 @@ namespace Microsoft.Azure.Management.Sql
         /// </exception>
         System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse> DeleteAzureADAdministratorWithHttpMessagesAsync(string resourceGroupName, string serverName, string administratorName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Begins deleting an existing Azure SQL Server Active Directory
-        /// Administrator.To determine the status of the operation call
-        /// GetServerAdministratorDeleteOperationStatus.
+        /// Deletes an existing Azure SQL Server Active Directory
+        /// Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.

@@ -38,9 +38,8 @@ namespace Microsoft.Azure.Management.Sql
         Microsoft.Rest.ServiceClientCredentials Credentials { get; }
 
         /// <summary>
-        /// Gets subscription credentials which uniquely identify Microsoft
-        /// Azure subscription. The subscription ID forms part of the URI for
-        /// every service call.
+        /// The subscription credentials which uniquely identify Microsoft
+        /// Azure subscription.
         /// </summary>
         System.Guid SubscriptionId { get; set; }
 
@@ -68,9 +67,34 @@ namespace Microsoft.Azure.Management.Sql
         IDatabasesOperations Databases { get; }
 
         /// <summary>
-        /// Gets the IEngineAuditRecordsOperations.
+        /// Gets the IDatabaseAdvisorsOperations.
         /// </summary>
-        IEngineAuditRecordsOperations EngineAuditRecords { get; }
+        IDatabaseAdvisorsOperations DatabaseAdvisors { get; }
+
+        /// <summary>
+        /// Gets the IDatabaseRecommendedActionsOperations.
+        /// </summary>
+        IDatabaseRecommendedActionsOperations DatabaseRecommendedActions { get; }
+
+        /// <summary>
+        /// Gets the IElasticPoolAdvisorsOperations.
+        /// </summary>
+        IElasticPoolAdvisorsOperations ElasticPoolAdvisors { get; }
+
+        /// <summary>
+        /// Gets the IElasticPoolRecommendedActionsOperations.
+        /// </summary>
+        IElasticPoolRecommendedActionsOperations ElasticPoolRecommendedActions { get; }
+
+        /// <summary>
+        /// Gets the IServerAdvisorsOperations.
+        /// </summary>
+        IServerAdvisorsOperations ServerAdvisors { get; }
+
+        /// <summary>
+        /// Gets the IServerRecommendedActionsOperations.
+        /// </summary>
+        IServerRecommendedActionsOperations ServerRecommendedActions { get; }
 
         /// <summary>
         /// Gets the IServersOperations.
@@ -88,9 +112,9 @@ namespace Microsoft.Azure.Management.Sql
         IRecommendedElasticPoolsOperations RecommendedElasticPools { get; }
 
         /// <summary>
-        /// Gets the IAuditingPolicyOperations.
+        /// Gets the IAuditingPoliciesOperations.
         /// </summary>
-        IAuditingPolicyOperations AuditingPolicy { get; }
+        IAuditingPoliciesOperations AuditingPolicies { get; }
 
         /// <summary>
         /// Gets the IDataMaskingOperations.

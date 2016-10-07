@@ -26,21 +26,20 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the
         /// UpgradeRecommendedElasticPoolProperties class.
         /// </summary>
-        /// <param name="name">Gets or sets the name of the Azure SQL
+        /// <param name="name">The name of the Azure SQL Recommended Elastic
+        /// Pool being upgraded.</param>
+        /// <param name="edition">The target edition for the Azure SQL
         /// Recommended Elastic Pool being upgraded.</param>
-        /// <param name="edition">Gets or sets the target edition for the
-        /// Azure SQL Recommended Elastic Pool being upgraded.</param>
-        /// <param name="dtu">Gets or sets the DTU guarantee for the Azure SQL
+        /// <param name="dtu">The DTU guarantee for the Azure SQL Recommended
+        /// Elastic Pool being upgraded.</param>
+        /// <param name="storageMb">The storage limit in MB for the Azure SQL
         /// Recommended Elastic Pool being upgraded.</param>
-        /// <param name="storageMb">Gets or sets the storage limit in MB for
+        /// <param name="databaseDtuMin">The DTU guarantee for database for
         /// the Azure SQL Recommended Elastic Pool being upgraded.</param>
-        /// <param name="databaseDtuMin">Gets or sets the DTU guarantee for
-        /// database for the Azure SQL Recommended Elastic Pool being
-        /// upgraded.</param>
-        /// <param name="databaseDtuMax">Gets or sets the DTU cap for database
-        /// for the Azure SQL Recommended Elastic Pool being upgraded.</param>
-        /// <param name="databaseCollection">Gets or sets the list of database
-        /// names to be put in the Azure SQL Recommended Elastic Pool being
+        /// <param name="databaseDtuMax">The DTU cap for database for the
+        /// Azure SQL Recommended Elastic Pool being upgraded.</param>
+        /// <param name="databaseCollection">The list of database names to be
+        /// put in the Azure SQL Recommended Elastic Pool being
         /// upgraded.</param>
         /// <param name="includeAllDatabases">Gets or sets whether all
         /// databases to be put in the Azure SQL Recommended Elastic Pool

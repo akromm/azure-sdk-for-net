@@ -28,9 +28,9 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="status">Gets the status of the Azure SQL Database.
+        /// <param name="status">The status of the Azure SQL Database.
         /// Possible values include: 'Encrypting', 'Decrypting'</param>
-        /// <param name="percentComplete">Gets the percent complete of the
+        /// <param name="percentComplete">The percent complete of the
         /// transparent data encryption scan for a Azure SQL Database.</param>
         public TransparentDataEncryptionActivity(string name = default(string), string id = default(string), string status = default(string), double? percentComplete = default(double?))
             : base(name, id)

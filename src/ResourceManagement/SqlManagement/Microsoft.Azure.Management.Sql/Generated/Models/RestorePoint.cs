@@ -29,9 +29,9 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="restorePointType">Gets the restore point type of the
-        /// Azure SQL Database restore point. Possible values include:
-        /// 'DISCRETE', 'CONTINUOUS'</param>
+        /// <param name="restorePointType">The restore point type of the Azure
+        /// SQL Database restore point. Possible values include: 'DISCRETE',
+        /// 'CONTINUOUS'</param>
         /// <param name="restorePointCreationDate">Restore point creation
         /// time. Populated when restorePointType = CONTINUOUS. Null
         /// otherwise.</param>

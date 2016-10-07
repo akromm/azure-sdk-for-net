@@ -26,12 +26,12 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="observationPeriodStart">Gets the observation period
+        /// <param name="observationPeriodStart">The observation period
         /// start.</param>
-        /// <param name="observationPeriodEnd">Gets the observation period
+        /// <param name="observationPeriodEnd">The observation period
         /// start.</param>
-        /// <param name="activeTimeRatio">Gets the activeTimeRatio for service
-        /// tier advisor.</param>
+        /// <param name="activeTimeRatio">The activeTimeRatio for service tier
+        /// advisor.</param>
         /// <param name="minDtu">Gets or sets minDtu for service tier
         /// advisor.</param>
         /// <param name="avgDtu">Gets or sets avgDtu for service tier

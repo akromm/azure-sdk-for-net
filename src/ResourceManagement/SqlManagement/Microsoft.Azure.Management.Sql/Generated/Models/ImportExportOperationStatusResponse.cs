@@ -26,30 +26,25 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the
         /// ImportExportOperationStatusResponse class.
         /// </summary>
-        /// <param name="requestType">Gets or sets the request type of the
-        /// operation.</param>
-        /// <param name="requestId">Gets or sets the request type of the
-        /// operation.</param>
-        /// <param name="serverName">Gets or sets the name of the Azure SQL
-        /// Server.</param>
-        /// <param name="databaseName">Gets or sets the name of the Azure SQL
+        /// <param name="requestType">The type of the requested operation.
+        /// Possible values include: 'Import', 'Export'</param>
+        /// <param name="requestId">The request id for the operation.</param>
+        /// <param name="serverName">The name of the Azure SQL Server.</param>
+        /// <param name="databaseName">The name of the Azure SQL
         /// Database.</param>
-        /// <param name="status">Gets or sets the status message returned from
-        /// the server.</param>
-        /// <param name="lastModifiedTime">Gets or sets the operation status
-        /// last modified time.</param>
-        /// <param name="queuedTime">Gets or sets the operation queued
+        /// <param name="status">The status message returned from the server.
+        /// Possible values include: 'Running', 'RunningAfterRestart',
+        /// 'Pending', 'Completed', 'Failed'</param>
+        /// <param name="lastModifiedTime">The operation status last modified
         /// time.</param>
-        /// <param name="blobUri">Gets or sets the blob uri.</param>
-        /// <param name="errorMessage">Gets or sets the error message returned
-        /// from the server.</param>
-        /// <param name="id">Gets or sets the id returned from the
+        /// <param name="queuedTime">The operation queued time.</param>
+        /// <param name="blobUri">The blob uri.</param>
+        /// <param name="errorMessage">The error message returned from the
         /// server.</param>
-        /// <param name="name">Gets or sets the name returned from the
-        /// server.</param>
-        /// <param name="type">Gets or sets the type returned from the
-        /// server.</param>
-        public ImportExportOperationStatusResponse(string requestType = default(string), System.Guid? requestId = default(System.Guid?), string serverName = default(string), string databaseName = default(string), string status = default(string), string lastModifiedTime = default(string), string queuedTime = default(string), string blobUri = default(string), string errorMessage = default(string), string id = default(string), string name = default(string), string type = default(string))
+        /// <param name="id">The id returned from the server.</param>
+        /// <param name="name">The name returned from the server.</param>
+        /// <param name="type">The type returned from the server.</param>
+        public ImportExportOperationStatusResponse(ImportExportOperationMode? requestType = default(ImportExportOperationMode?), System.Guid? requestId = default(System.Guid?), string serverName = default(string), string databaseName = default(string), ImportExportOperationStatus? status = default(ImportExportOperationStatus?), string lastModifiedTime = default(string), string queuedTime = default(string), string blobUri = default(string), string errorMessage = default(string), string id = default(string), string name = default(string), string type = default(string))
         {
             RequestType = requestType;
             RequestId = requestId;
@@ -66,13 +61,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets or sets the request type of the operation.
+        /// Gets or sets the type of the requested operation. Possible values
+        /// include: 'Import', 'Export'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.requestType")]
-        public string RequestType { get; set; }
+        public ImportExportOperationMode? RequestType { get; set; }
 
         /// <summary>
-        /// Gets or sets the request type of the operation.
+        /// Gets or sets the request id for the operation.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.requestId")]
         public System.Guid? RequestId { get; set; }
@@ -90,10 +86,12 @@ namespace Microsoft.Azure.Management.Sql.Models
         public string DatabaseName { get; set; }
 
         /// <summary>
-        /// Gets or sets the status message returned from the server.
+        /// Gets or sets the status message returned from the server. Possible
+        /// values include: 'Running', 'RunningAfterRestart', 'Pending',
+        /// 'Completed', 'Failed'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.status")]
-        public string Status { get; set; }
+        public ImportExportOperationStatus? Status { get; set; }
 
         /// <summary>
         /// Gets or sets the operation status last modified time.
@@ -120,22 +118,22 @@ namespace Microsoft.Azure.Management.Sql.Models
         public string ErrorMessage { get; set; }
 
         /// <summary>
-        /// Gets or sets the id returned from the server.
+        /// Gets the id returned from the server.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string Id { get; private set; }
 
         /// <summary>
-        /// Gets or sets the name returned from the server.
+        /// Gets the name returned from the server.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         /// <summary>
-        /// Gets or sets the type returned from the server.
+        /// Gets the type returned from the server.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
+        public string Type { get; private set; }
 
     }
 }

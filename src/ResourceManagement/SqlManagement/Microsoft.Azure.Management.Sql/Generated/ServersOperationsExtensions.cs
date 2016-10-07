@@ -264,7 +264,7 @@ namespace Microsoft.Azure.Management.Sql
             /// The name of the Azure SQL Server
             /// </param>
             /// <param name='serverUpgradeProperties'>
-            /// Gets or sets the properties of the Azure SQL Server Upgrade.
+            /// The properties of the Azure SQL Server Upgrade.
             /// </param>
             public static void StartUpgrade(this IServersOperations operations, string resourceGroupName, string serverName, ServerUpgradeProperties serverUpgradeProperties)
             {
@@ -284,7 +284,7 @@ namespace Microsoft.Azure.Management.Sql
             /// The name of the Azure SQL Server
             /// </param>
             /// <param name='serverUpgradeProperties'>
-            /// Gets or sets the properties of the Azure SQL Server Upgrade.
+            /// The properties of the Azure SQL Server Upgrade.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -694,7 +694,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Gets the status of an import operation given the operation ID.
+            /// The status of an import operation given the operation ID.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -714,7 +714,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Gets the status of an import operation given the operation ID.
+            /// The status of an import operation given the operation ID.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -751,7 +751,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='serverName'>
             /// The name of the Azure SQL Server
             /// </param>
-            public static ServerDisasterRecoveryConfigurationList ListDisasterRecoveryConfigurations(this IServersOperations operations, string resourceGroupName, string serverName)
+            public static System.Collections.Generic.IEnumerable<ServerDisasterRecoveryConfiguration> ListDisasterRecoveryConfigurations(this IServersOperations operations, string resourceGroupName, string serverName)
             {
                 return System.Threading.Tasks.Task.Factory.StartNew(s => ((IServersOperations)s).ListDisasterRecoveryConfigurationsAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -771,7 +771,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<ServerDisasterRecoveryConfigurationList> ListDisasterRecoveryConfigurationsAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async Task<System.Collections.Generic.IEnumerable<ServerDisasterRecoveryConfiguration>> ListDisasterRecoveryConfigurationsAsync(this IServersOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.ListDisasterRecoveryConfigurationsWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -877,9 +877,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new or updating an existing Azure SQL Server disaster
-            /// recovery configuration. To determine the status of the operation call
-            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// Starts creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -904,9 +903,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new or updating an existing Azure SQL Server disaster
-            /// recovery configuration. To determine the status of the operation call
-            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// Starts creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -937,9 +935,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new or updating an existing Azure SQL Server disaster
-            /// recovery configuration. To determine the status of the operation call
-            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// Starts creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -964,9 +961,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new or updating an existing Azure SQL Server disaster
-            /// recovery configuration. To determine the status of the operation call
-            /// GetServerDisasterRecoveryConfigurationOperationStatus.
+            /// Starts creating a new or updating an existing Azure SQL Server disaster
+            /// recovery configuration.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -997,7 +993,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins failover for the Azure SQL server disaster recovery configuration
+            /// Starts a failover for the Azure SQL server disaster recovery configuration
             /// with the given name.
             /// </summary>
             /// <param name='operations'>
@@ -1019,7 +1015,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins failover for the Azure SQL server disaster recovery configuration
+            /// Starts a failover for the Azure SQL server disaster recovery configuration
             /// with the given name.
             /// </summary>
             /// <param name='operations'>
@@ -1091,10 +1087,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new Azure SQL Server Active Directory Administrator or
-            /// updating an existing Azure SQL Server Active Directory Administrator. To
-            /// determine the status of the operation call
-            /// GetServerAdministratorOperationStatus.
+            /// Creates a new Azure SQL Server Active Directory Administrator or updates
+            /// an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1118,10 +1112,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new Azure SQL Server Active Directory Administrator or
-            /// updating an existing Azure SQL Server Active Directory Administrator. To
-            /// determine the status of the operation call
-            /// GetServerAdministratorOperationStatus.
+            /// Creates a new Azure SQL Server Active Directory Administrator or updates
+            /// an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1151,10 +1143,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new Azure SQL Server Active Directory Administrator or
-            /// updating an existing Azure SQL Server Active Directory Administrator. To
-            /// determine the status of the operation call
-            /// GetServerAdministratorOperationStatus.
+            /// Creates a new Azure SQL Server Active Directory Administrator or updates
+            /// an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1178,10 +1168,8 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins creating a new Azure SQL Server Active Directory Administrator or
-            /// updating an existing Azure SQL Server Active Directory Administrator. To
-            /// determine the status of the operation call
-            /// GetServerAdministratorOperationStatus.
+            /// Creates a new Azure SQL Server Active Directory Administrator or updates
+            /// an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1211,9 +1199,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins deleting an existing Azure SQL Server Active Directory
-            /// Administrator.To determine the status of the operation call
-            /// GetServerAdministratorDeleteOperationStatus.
+            /// Deletes an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1233,9 +1219,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins deleting an existing Azure SQL Server Active Directory
-            /// Administrator.To determine the status of the operation call
-            /// GetServerAdministratorDeleteOperationStatus.
+            /// Deletes an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1258,9 +1242,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins deleting an existing Azure SQL Server Active Directory
-            /// Administrator.To determine the status of the operation call
-            /// GetServerAdministratorDeleteOperationStatus.
+            /// Deletes an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1280,9 +1262,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Begins deleting an existing Azure SQL Server Active Directory
-            /// Administrator.To determine the status of the operation call
-            /// GetServerAdministratorDeleteOperationStatus.
+            /// Deletes an existing Azure SQL Server Active Directory Administrator.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

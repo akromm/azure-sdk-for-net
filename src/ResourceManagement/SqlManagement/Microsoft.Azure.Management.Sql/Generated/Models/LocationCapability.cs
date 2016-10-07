@@ -23,13 +23,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the LocationCapability class.
         /// </summary>
-        /// <param name="name">Gets the region name.</param>
-        /// <param name="status">Gets the status for the region with respect
-        /// to Azure SQL. Possible values include: 'Visible', 'Available',
+        /// <param name="name">The region name.</param>
+        /// <param name="status">The status for the region with respect to
+        /// Azure SQL. Possible values include: 'Visible', 'Available',
         /// 'Default'</param>
-        /// <param name="supportedServerVersions">Gets the list of supported
-        /// Azure SQL Server versions.</param>
-        public LocationCapability(string name = default(string), string status = default(string), System.Collections.Generic.IList<ServerVersionCapability> supportedServerVersions = default(System.Collections.Generic.IList<ServerVersionCapability>))
+        /// <param name="supportedServerVersions">The list of supported Azure
+        /// SQL Server versions.</param>
+        public LocationCapability(string name = default(string), CapabilityStatus? status = default(CapabilityStatus?), System.Collections.Generic.IList<ServerVersionCapability> supportedServerVersions = default(System.Collections.Generic.IList<ServerVersionCapability>))
         {
             Name = name;
             Status = status;
@@ -47,7 +47,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// values include: 'Visible', 'Available', 'Default'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "status")]
-        public string Status { get; private set; }
+        public CapabilityStatus? Status { get; private set; }
 
         /// <summary>
         /// Gets the list of supported Azure SQL Server versions.

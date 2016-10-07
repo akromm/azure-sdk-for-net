@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the RecommendedElasticPoolMetric
         /// class.
         /// </summary>
-        /// <param name="dateTime">Gets or sets the time of metric.</param>
-        /// <param name="dtu">Gets or sets the DTU.</param>
+        /// <param name="dateTime">The time of metric.</param>
+        /// <param name="dtu">The DTU.</param>
         /// <param name="sizeGB">Gets or sets size in gigabytes.</param>
         public RecommendedElasticPoolMetric(System.DateTime? dateTime = default(System.DateTime?), double? dtu = default(double?), double? sizeGB = default(double?))
         {

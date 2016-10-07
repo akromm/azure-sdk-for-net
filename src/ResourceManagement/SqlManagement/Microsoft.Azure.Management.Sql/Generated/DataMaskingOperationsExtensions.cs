@@ -30,10 +30,11 @@ namespace Microsoft.Azure.Management.Sql
             /// The name of the Azure SQL Server
             /// </param>
             /// <param name='databaseName'>
-            /// The name of the Azure SQL Database for which the data masking rule applies.
+            /// The name of the Azure SQL Database for which the data masking policy
+            /// applies.
             /// </param>
             /// <param name='parameters'>
-            /// The required parameters for createing or updating a firewall rule.
+            /// The required parameters for creating or updating a data masking policy.
             /// </param>
             public static DataMaskingPolicy CreateOrUpdatePolicy(this IDataMaskingOperations operations, string resourceGroupName, string serverName, string databaseName, DataMaskingPolicy parameters)
             {
@@ -53,10 +54,11 @@ namespace Microsoft.Azure.Management.Sql
             /// The name of the Azure SQL Server
             /// </param>
             /// <param name='databaseName'>
-            /// The name of the Azure SQL Database for which the data masking rule applies.
+            /// The name of the Azure SQL Database for which the data masking policy
+            /// applies.
             /// </param>
             /// <param name='parameters'>
-            /// The required parameters for createing or updating a firewall rule.
+            /// The required parameters for creating or updating a data masking policy.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -118,7 +120,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Creates or updates an Azure SQL Server Firewall rule.
+            /// Creates or updates an Azure SQL Database data masking rule.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -144,7 +146,7 @@ namespace Microsoft.Azure.Management.Sql
             }
 
             /// <summary>
-            /// Creates or updates an Azure SQL Server Firewall rule.
+            /// Creates or updates an Azure SQL Database data masking rule.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

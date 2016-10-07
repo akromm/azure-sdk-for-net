@@ -26,14 +26,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// </summary>
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
-        /// <param name="serviceObjectiveName">Gets the name for the service
+        /// <param name="serviceObjectiveName">The name for the service
         /// objective.</param>
         /// <param name="isDefault">Gets whether the service level objective
         /// is the default service objective.</param>
         /// <param name="isSystem">Gets whether the service level objective is
         /// a system service objective.</param>
-        /// <param name="description">Gets the description for the service
-        /// level objective.</param>
+        /// <param name="description">The description for the service level
+        /// objective.</param>
         /// <param name="enabled">Gets whether the service level objective is
         /// enabled.</param>
         public ServiceObjective(string name = default(string), string id = default(string), string serviceObjectiveName = default(string), bool? isDefault = default(bool?), bool? isSystem = default(bool?), string description = default(string), bool? enabled = default(bool?))

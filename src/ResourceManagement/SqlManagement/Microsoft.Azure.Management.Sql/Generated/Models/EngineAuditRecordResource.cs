@@ -10,6 +10,9 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
+    /// <summary>
+    /// Contains an engine auditing record.
+    /// </summary>
     [Microsoft.Rest.Serialization.JsonTransformation]
     public partial class EngineAuditRecordResource
     {

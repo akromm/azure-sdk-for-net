@@ -29,50 +29,47 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="collation">Gets the collation of the Azure SQL
+        /// <param name="collation">The collation of the Azure SQL
         /// Database.</param>
-        /// <param name="creationDate">Gets the creation date of the Azure SQL
+        /// <param name="creationDate">The creation date of the Azure SQL
         /// Database.</param>
-        /// <param name="currentServiceObjectiveId">Gets the current Service
-        /// Level Objective Id of the Azure SQL Database. This is the Id of
-        /// the Service Level Objective that is currently active.</param>
-        /// <param name="databaseId">Gets the Id of the Azure SQL
+        /// <param name="currentServiceObjectiveId">The current Service Level
+        /// Objective Id of the Azure SQL Database. This is the Id of the
+        /// Service Level Objective that is currently active.</param>
+        /// <param name="databaseId">The Id of the Azure SQL Database.</param>
+        /// <param name="earliestRestoreDate">The recovery period starte date
+        /// of the Azure SQL Database. This records the start date and time
+        /// when recovery is available for this Azure SQL Database.</param>
+        /// <param name="edition">The edition of the Azure SQL Database.  The
+        /// DatabaseEditions enumeration contains all the valid editions.
+        /// Possible values include: 'Web', 'Business', 'Basic', 'Standard',
+        /// 'Premium', 'Free', 'Stretch', 'DataWarehouse'</param>
+        /// <param name="maxSizeBytes">The max size of the Azure SQL Database
+        /// expressed in bytes.</param>
+        /// <param name="requestedServiceObjectiveId">The configured Service
+        /// Level Objective Id of the Azure SQL Database. This is the Service
+        /// Level Objective that is being applied to the Azure SQL
         /// Database.</param>
-        /// <param name="earliestRestoreDate">Gets the recovery period starte
-        /// date of the Azure SQL Database. This records the start date and
-        /// time when recovery is available for this Azure SQL
-        /// Database.</param>
-        /// <param name="edition">Gets the edition of the Azure SQL Database.
-        /// The DatabaseEditions enumeration contains all the valid
-        /// editions. Possible values include: 'Web', 'Business', 'Basic',
-        /// 'Standard', 'Premium', 'Free', 'Stretch', 'DataWarehouse'</param>
-        /// <param name="maxSizeBytes">Gets the max size of the Azure SQL
-        /// Database expressed in bytes.</param>
-        /// <param name="requestedServiceObjectiveId">Gets the configured
-        /// Service Level Objective Id of the Azure SQL Database. This is the
-        /// Service Level Objective that is being applied to the Azure SQL
-        /// Database.</param>
-        /// <param name="requestedServiceObjectiveName">Gets the name of the
+        /// <param name="requestedServiceObjectiveName">The name of the
         /// configured Service Level Objective of the Azure SQL Database.
         /// This is the Service Level Objective that is being applied to the
         /// Azure SQL Database.</param>
-        /// <param name="serviceLevelObjective">Gets the Service Level
-        /// Objective of the Azure SQL Database.</param>
-        /// <param name="status">Gets the status of the Azure SQL
-        /// Database.</param>
-        /// <param name="elasticPoolName">Gets the name of the Azure SQL
-        /// Elastic Pool the database is in.</param>
-        /// <param name="defaultSecondaryLocation">Gets the default secondary
+        /// <param name="serviceLevelObjective">The Service Level Objective of
+        /// the Azure SQL Database.</param>
+        /// <param name="status">The status of the Azure SQL Database.</param>
+        /// <param name="elasticPoolName">The name of the Azure SQL Elastic
+        /// Pool the database is in.</param>
+        /// <param name="defaultSecondaryLocation">The default secondary
         /// region for this database.</param>
-        /// <param name="serviceTierAdvisors">Gets the list of service tier
+        /// <param name="serviceTierAdvisors">The list of service tier
         /// advisors for this database. Expanded property</param>
-        /// <param name="upgradeHint">Gets the upgrade hint for this
+        /// <param name="upgradeHint">The upgrade hint for this
         /// database.</param>
-        /// <param name="schemas">Gets the schemas from this database.</param>
-        /// <param name="transparentDataEncryption">Gets the transparent data
+        /// <param name="schemas">The schemas from this database.</param>
+        /// <param name="transparentDataEncryption">The transparent data
         /// encryption info for this database.</param>
-        /// <param name="recommendedIndex">Gets the recommended indices for
-        /// this database.</param>
+        /// <param name="recommendedIndex">The recommended indices for this
+        /// database.</param>
         public Database(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string collation = default(string), System.DateTime? creationDate = default(System.DateTime?), System.Guid? currentServiceObjectiveId = default(System.Guid?), string databaseId = default(string), System.DateTime? earliestRestoreDate = default(System.DateTime?), string edition = default(string), long? maxSizeBytes = default(long?), System.Guid? requestedServiceObjectiveId = default(System.Guid?), string requestedServiceObjectiveName = default(string), System.Guid? serviceLevelObjective = default(System.Guid?), string status = default(string), string elasticPoolName = default(string), string defaultSecondaryLocation = default(string), System.Collections.Generic.IList<ServiceTierAdvisor> serviceTierAdvisors = default(System.Collections.Generic.IList<ServiceTierAdvisor>), UpgradeHint upgradeHint = default(UpgradeHint), System.Collections.Generic.IList<Schema> schemas = default(System.Collections.Generic.IList<Schema>), System.Collections.Generic.IList<TransparentDataEncryption> transparentDataEncryption = default(System.Collections.Generic.IList<TransparentDataEncryption>), System.Collections.Generic.IList<RecommendedIndex> recommendedIndex = default(System.Collections.Generic.IList<RecommendedIndex>))
             : base(location, name, id, type, tags)
         {
@@ -97,7 +94,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets the collation of the Azure SQL Database.
+        /// Gets or sets the collation of the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.collation")]
         public string Collation { get; set; }
@@ -131,32 +128,33 @@ namespace Microsoft.Azure.Management.Sql.Models
         public System.DateTime? EarliestRestoreDate { get; private set; }
 
         /// <summary>
-        /// Gets the edition of the Azure SQL Database.  The DatabaseEditions
-        /// enumeration contains all the valid editions. Possible values
-        /// include: 'Web', 'Business', 'Basic', 'Standard', 'Premium',
-        /// 'Free', 'Stretch', 'DataWarehouse'
+        /// Gets or sets the edition of the Azure SQL Database.  The
+        /// DatabaseEditions enumeration contains all the valid editions.
+        /// Possible values include: 'Web', 'Business', 'Basic', 'Standard',
+        /// 'Premium', 'Free', 'Stretch', 'DataWarehouse'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.edition")]
         public string Edition { get; set; }
 
         /// <summary>
-        /// Gets the max size of the Azure SQL Database expressed in bytes.
+        /// Gets or sets the max size of the Azure SQL Database expressed in
+        /// bytes.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.maxSizeBytes")]
         public long? MaxSizeBytes { get; set; }
 
         /// <summary>
-        /// Gets the configured Service Level Objective Id of the Azure SQL
-        /// Database. This is the Service Level Objective that is being
-        /// applied to the Azure SQL Database.
+        /// Gets or sets the configured Service Level Objective Id of the
+        /// Azure SQL Database. This is the Service Level Objective that is
+        /// being applied to the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.requestedServiceObjectiveId")]
         public System.Guid? RequestedServiceObjectiveId { get; set; }
 
         /// <summary>
-        /// Gets the name of the configured Service Level Objective of the
-        /// Azure SQL Database. This is the Service Level Objective that is
-        /// being applied to the Azure SQL Database.
+        /// Gets or sets the name of the configured Service Level Objective of
+        /// the Azure SQL Database. This is the Service Level Objective that
+        /// is being applied to the Azure SQL Database.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.requestedServiceObjectiveName")]
         public string RequestedServiceObjectiveName { get; set; }
@@ -174,7 +172,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         public string Status { get; private set; }
 
         /// <summary>
-        /// Gets the name of the Azure SQL Elastic Pool the database is in.
+        /// Gets or sets the name of the Azure SQL Elastic Pool the database
+        /// is in.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.elasticPoolName")]
         public string ElasticPoolName { get; set; }

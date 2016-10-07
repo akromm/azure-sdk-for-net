@@ -29,7 +29,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="columnType">Gets the type of Azure SQL Database table
+        /// <param name="columnType">The type of Azure SQL Database table
         /// column.</param>
         public Column(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string columnType = default(string))
             : base(location, name, id, type, tags)

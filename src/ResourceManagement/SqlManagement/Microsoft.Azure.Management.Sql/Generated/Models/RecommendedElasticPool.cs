@@ -29,28 +29,28 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="databaseEdition">Gets the edition of the Azure SQL
+        /// <param name="databaseEdition">The edition of the Azure SQL
         /// Recommended Elastic Pool. The ElasticPoolEditions enumeration
         /// contains all the valid editions. Possible values include:
         /// 'Basic', 'Standard', 'Premium'</param>
-        /// <param name="dtu">Gets the DTU for the Sql Azure Recommended
-        /// Elastic Pool.</param>
-        /// <param name="databaseDtuMin">Gets the minimum DTU for the
+        /// <param name="dtu">The DTU for the Sql Azure Recommended Elastic
+        /// Pool.</param>
+        /// <param name="databaseDtuMin">The minimum DTU for the
         /// database.</param>
-        /// <param name="databaseDtuMax">Gets the maximum DTU for the
+        /// <param name="databaseDtuMax">The maximum DTU for the
         /// database.</param>
         /// <param name="storageMB">Gets storage size in megabytes.</param>
-        /// <param name="observationPeriodStart">Gets the observation period
+        /// <param name="observationPeriodStart">The observation period
         /// start.</param>
-        /// <param name="observationPeriodEnd">Gets the observation period
+        /// <param name="observationPeriodEnd">The observation period
         /// start.</param>
         /// <param name="maxObservedDtu">Gets maximum observed DTU.</param>
         /// <param name="maxObservedStorageMB">Gets maximum observed storage
         /// in megabytes.</param>
-        /// <param name="databases">Gets the list of Azure Sql Databases in
-        /// this pool. Expanded property</param>
-        /// <param name="metrics">Gets the list of Azure Sql Databases housed
-        /// in the server. Expanded property</param>
+        /// <param name="databases">The list of Azure Sql Databases in this
+        /// pool. Expanded property</param>
+        /// <param name="metrics">The list of Azure Sql Databases housed in
+        /// the server. Expanded property</param>
         public RecommendedElasticPool(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string databaseEdition = default(string), double? dtu = default(double?), double? databaseDtuMin = default(double?), double? databaseDtuMax = default(double?), double? storageMB = default(double?), System.DateTime? observationPeriodStart = default(System.DateTime?), System.DateTime? observationPeriodEnd = default(System.DateTime?), double? maxObservedDtu = default(double?), double? maxObservedStorageMB = default(double?), System.Collections.Generic.IList<Database> databases = default(System.Collections.Generic.IList<Database>), System.Collections.Generic.IList<RecommendedElasticPoolMetric> metrics = default(System.Collections.Generic.IList<RecommendedElasticPoolMetric>))
             : base(location, name, id, type, tags)
         {

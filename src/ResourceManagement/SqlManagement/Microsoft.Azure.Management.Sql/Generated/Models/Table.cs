@@ -29,11 +29,11 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="tableType">Gets the type of Azure SQL Database table.
+        /// <param name="tableType">The type of Azure SQL Database table.
         /// Possible values include: 'BaseTable', 'View'</param>
-        /// <param name="columns">Gets the columns from this table.</param>
-        /// <param name="recommendedIndexes">Gets the recommended indices for
-        /// this table.</param>
+        /// <param name="columns">The columns from this table.</param>
+        /// <param name="recommendedIndexes">The recommended indices for this
+        /// table.</param>
         public Table(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string tableType = default(string), System.Collections.Generic.IList<Column> columns = default(System.Collections.Generic.IList<Column>), System.Collections.Generic.IList<RecommendedIndex> recommendedIndexes = default(System.Collections.Generic.IList<RecommendedIndex>))
             : base(location, name, id, type, tags)
         {

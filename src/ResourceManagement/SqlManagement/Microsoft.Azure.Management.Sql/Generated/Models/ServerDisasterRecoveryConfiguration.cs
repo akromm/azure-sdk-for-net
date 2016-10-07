@@ -29,16 +29,19 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="name">Resource name</param>
         /// <param name="id">Resource Id</param>
         /// <param name="autoFailover">Whether or not automatic failover is
-        /// enabled.</param>
+        /// enabled. Possible values include: 'Off', 'On'</param>
         /// <param name="failoverPolicy">The policy for automatically failing
-        /// over.</param>
-        /// <param name="partnerLogicalServerName">Gets the name of the
-        /// partner server.</param>
-        /// <param name="partnerServerId">Gets the id path the partner
+        /// over. Possible values include: 'Manual', 'Automatic',
+        /// 'Off'</param>
+        /// <param name="partnerLogicalServerName">The name of the partner
         /// server.</param>
-        /// <param name="role">Gets the role of the server.</param>
+        /// <param name="partnerServerId">The id path the partner
+        /// server.</param>
+        /// <param name="role">The role of the server. Possible values
+        /// include: 'None', 'Primary', 'Secondary'</param>
         /// <param name="type">The type of server disaster recovery
-        /// configuration.</param>
+        /// configuration. Possible values include: 'AutoDR', 'Migration',
+        /// 'Copy', 'ContinuousCopy'</param>
         public ServerDisasterRecoveryConfiguration(string name = default(string), string id = default(string), string autoFailover = default(string), string failoverPolicy = default(string), string partnerLogicalServerName = default(string), string partnerServerId = default(string), string role = default(string), string type = default(string))
             : base(name, id)
         {
@@ -52,36 +55,41 @@ namespace Microsoft.Azure.Management.Sql.Models
 
         /// <summary>
         /// Gets or sets whether or not automatic failover is enabled.
+        /// Possible values include: 'Off', 'On'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.autoFailover")]
         public string AutoFailover { get; set; }
 
         /// <summary>
-        /// Gets or sets the policy for automatically failing over.
+        /// Gets or sets the policy for automatically failing over. Possible
+        /// values include: 'Manual', 'Automatic', 'Off'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.failoverPolicy")]
         public string FailoverPolicy { get; set; }
 
         /// <summary>
-        /// Gets the name of the partner server.
+        /// Gets or sets the name of the partner server.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.partnerLogicalServerName")]
         public string PartnerLogicalServerName { get; set; }
 
         /// <summary>
-        /// Gets the id path the partner server.
+        /// Gets or sets the id path the partner server.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.partnerServerId")]
         public string PartnerServerId { get; set; }
 
         /// <summary>
-        /// Gets the role of the server.
+        /// Gets or sets the role of the server. Possible values include:
+        /// 'None', 'Primary', 'Secondary'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.role")]
         public string Role { get; set; }
 
         /// <summary>
         /// Gets or sets the type of server disaster recovery configuration.
+        /// Possible values include: 'AutoDR', 'Migration', 'Copy',
+        /// 'ContinuousCopy'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "properties.type")]
         public string Type { get; set; }

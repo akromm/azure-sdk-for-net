@@ -1130,7 +1130,7 @@ namespace Microsoft.Azure.Management.Sql
         /// The name of the Azure SQL Server
         /// </param>
         /// <param name='serverUpgradeProperties'>
-        /// Gets or sets the properties of the Azure SQL Server Upgrade.
+        /// The properties of the Azure SQL Server Upgrade.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2895,7 +2895,7 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Gets the status of an import operation given the operation ID.
+        /// The status of an import operation given the operation ID.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -3147,7 +3147,7 @@ namespace Microsoft.Azure.Management.Sql
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<ServerDisasterRecoveryConfigurationList>> ListDisasterRecoveryConfigurationsWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Microsoft.Rest.Azure.AzureOperationResponse<System.Collections.Generic.IEnumerable<ServerDisasterRecoveryConfiguration>>> ListDisasterRecoveryConfigurationsWithHttpMessagesAsync(string resourceGroupName, string serverName, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -3273,7 +3273,7 @@ namespace Microsoft.Azure.Management.Sql
                 throw ex;
             }
             // Create Result
-            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<ServerDisasterRecoveryConfigurationList>();
+            var _result = new Microsoft.Rest.Azure.AzureOperationResponse<System.Collections.Generic.IEnumerable<ServerDisasterRecoveryConfiguration>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -3286,7 +3286,7 @@ namespace Microsoft.Azure.Management.Sql
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<ServerDisasterRecoveryConfigurationList>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = Microsoft.Rest.Serialization.SafeJsonConvert.DeserializeObject<Page1<ServerDisasterRecoveryConfiguration>>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (Newtonsoft.Json.JsonException ex)
                 {
@@ -3669,9 +3669,8 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins creating a new or updating an existing Azure SQL Server disaster
-        /// recovery configuration. To determine the status of the operation call
-        /// GetServerDisasterRecoveryConfigurationOperationStatus.
+        /// Starts creating a new or updating an existing Azure SQL Server disaster
+        /// recovery configuration.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -3704,9 +3703,8 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins creating a new or updating an existing Azure SQL Server disaster
-        /// recovery configuration. To determine the status of the operation call
-        /// GetServerDisasterRecoveryConfigurationOperationStatus.
+        /// Starts creating a new or updating an existing Azure SQL Server disaster
+        /// recovery configuration.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -3934,7 +3932,7 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins failover for the Azure SQL server disaster recovery configuration
+        /// Starts a failover for the Azure SQL server disaster recovery configuration
         /// with the given name.
         /// </summary>
         /// <param name='serverDisasterRecoveryConfigurationName'>
@@ -4268,10 +4266,8 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins creating a new Azure SQL Server Active Directory Administrator or
-        /// updating an existing Azure SQL Server Active Directory Administrator. To
-        /// determine the status of the operation call
-        /// GetServerAdministratorOperationStatus.
+        /// Creates a new Azure SQL Server Active Directory Administrator or updates
+        /// an existing Azure SQL Server Active Directory Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -4303,10 +4299,8 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins creating a new Azure SQL Server Active Directory Administrator or
-        /// updating an existing Azure SQL Server Active Directory Administrator. To
-        /// determine the status of the operation call
-        /// GetServerAdministratorOperationStatus.
+        /// Creates a new Azure SQL Server Active Directory Administrator or updates
+        /// an existing Azure SQL Server Active Directory Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -4362,6 +4356,10 @@ namespace Microsoft.Azure.Management.Sql
                 parameters.Validate();
             }
             string apiVersion = "2014-04-01";
+            if (parameters == null)
+            {
+                parameters = new ServerAzureADAdministrator();
+            }
             // Tracing
             bool _shouldTrace = Microsoft.Rest.ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4537,9 +4535,7 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins deleting an existing Azure SQL Server Active Directory
-        /// Administrator.To determine the status of the operation call
-        /// GetServerAdministratorDeleteOperationStatus.
+        /// Deletes an existing Azure SQL Server Active Directory Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.
@@ -4565,9 +4561,7 @@ namespace Microsoft.Azure.Management.Sql
         }
 
         /// <summary>
-        /// Begins deleting an existing Azure SQL Server Active Directory
-        /// Administrator.To determine the status of the operation call
-        /// GetServerAdministratorDeleteOperationStatus.
+        /// Deletes an existing Azure SQL Server Active Directory Administrator.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the Resource Group to which the resource belongs.

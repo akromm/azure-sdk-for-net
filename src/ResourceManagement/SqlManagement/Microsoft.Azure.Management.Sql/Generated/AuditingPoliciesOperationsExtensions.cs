@@ -13,9 +13,9 @@ namespace Microsoft.Azure.Management.Sql
    using Models;
 
     /// <summary>
-    /// Extension methods for AuditingPolicyOperations.
+    /// Extension methods for AuditingPoliciesOperations.
     /// </summary>
-    public static partial class AuditingPolicyOperationsExtensions
+    public static partial class AuditingPoliciesOperationsExtensions
     {
             /// <summary>
             /// Creates or updates an Azure SQL Database auditing policy.
@@ -36,9 +36,9 @@ namespace Microsoft.Azure.Management.Sql
             /// The required parameters for createing or updating a Azure SQL Database
             /// auditing policy.
             /// </param>
-            public static DatabaseAuditingPolicy CreateOrUpdateDatebasePolicy(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseAuditingPolicy parameters)
+            public static DatabaseAuditingPolicy CreateOrUpdateDatabasePolicy(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseAuditingPolicy parameters)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPolicyOperations)s).CreateOrUpdateDatebasePolicyAsync(resourceGroupName, serverName, databaseName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPoliciesOperations)s).CreateOrUpdateDatabasePolicyAsync(resourceGroupName, serverName, databaseName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -63,9 +63,9 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<DatabaseAuditingPolicy> CreateOrUpdateDatebasePolicyAsync(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseAuditingPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<DatabaseAuditingPolicy> CreateOrUpdateDatabasePolicyAsync(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, string databaseName, DatabaseAuditingPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.CreateOrUpdateDatebasePolicyWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateOrUpdateDatabasePolicyWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -86,9 +86,9 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='databaseName'>
             /// The name of the Azure SQL Database for which the auditing policy applies.
             /// </param>
-            public static DatabaseAuditingPolicy GetDatabasePolicy(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, string databaseName)
+            public static DatabaseAuditingPolicy GetDatabasePolicy(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, string databaseName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPolicyOperations)s).GetDatabasePolicyAsync(resourceGroupName, serverName, databaseName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPoliciesOperations)s).GetDatabasePolicyAsync(resourceGroupName, serverName, databaseName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -109,7 +109,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<DatabaseAuditingPolicy> GetDatabasePolicyAsync(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, string databaseName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<DatabaseAuditingPolicy> GetDatabasePolicyAsync(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, string databaseName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetDatabasePolicyWithHttpMessagesAsync(resourceGroupName, serverName, databaseName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -133,9 +133,9 @@ namespace Microsoft.Azure.Management.Sql
             /// The required parameters for createing or updating a Azure SQL Server
             /// auditing policy.
             /// </param>
-            public static ServerAuditingPolicy CreateOrUpdateServerPolicy(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, ServerAuditingPolicy parameters)
+            public static ServerAuditingPolicy CreateOrUpdateServerPolicy(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, ServerAuditingPolicy parameters)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPolicyOperations)s).CreateOrUpdateServerPolicyAsync(resourceGroupName, serverName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPoliciesOperations)s).CreateOrUpdateServerPolicyAsync(resourceGroupName, serverName, parameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -157,7 +157,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<ServerAuditingPolicy> CreateOrUpdateServerPolicyAsync(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, ServerAuditingPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<ServerAuditingPolicy> CreateOrUpdateServerPolicyAsync(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, ServerAuditingPolicy parameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateServerPolicyWithHttpMessagesAsync(resourceGroupName, serverName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -177,9 +177,9 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='serverName'>
             /// The name of the Azure SQL Server
             /// </param>
-            public static ServerAuditingPolicy GetServerPolicy(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName)
+            public static ServerAuditingPolicy GetServerPolicy(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPolicyOperations)s).GetServerPolicyAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IAuditingPoliciesOperations)s).GetServerPolicyAsync(resourceGroupName, serverName), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -197,7 +197,7 @@ namespace Microsoft.Azure.Management.Sql
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<ServerAuditingPolicy> GetServerPolicyAsync(this IAuditingPolicyOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<ServerAuditingPolicy> GetServerPolicyAsync(this IAuditingPoliciesOperations operations, string resourceGroupName, string serverName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
                 using (var _result = await operations.GetServerPolicyWithHttpMessagesAsync(resourceGroupName, serverName, null, cancellationToken).ConfigureAwait(false))
                 {

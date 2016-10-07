@@ -12,10 +12,14 @@ namespace Microsoft.Azure.Management.Sql.Models
     /// <summary>
     /// Defines values for ServerConnectonTypes.
     /// </summary>
-    public static class ServerConnectonTypes
+    [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+    public enum ServerConnectonTypes
     {
-        public const string Default = "Default";
-        public const string Proxy = "Proxy";
-        public const string Redirect = "Redirect";
+        [System.Runtime.Serialization.EnumMember(Value = "Default")]
+        Default,
+        [System.Runtime.Serialization.EnumMember(Value = "Proxy")]
+        Proxy,
+        [System.Runtime.Serialization.EnumMember(Value = "Redirect")]
+        Redirect
     }
 }

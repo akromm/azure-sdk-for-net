@@ -23,13 +23,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the OperationImpact class.
         /// </summary>
-        /// <param name="name">Gets the name of the impact dimension.</param>
-        /// <param name="unit">Gets the unit in which estimated impact to
-        /// dimension is measured.</param>
-        /// <param name="changeValueAbsolute">Gets the absolute impact to
+        /// <param name="name">The name of the impact dimension.</param>
+        /// <param name="unit">The unit in which estimated impact to dimension
+        /// is measured.</param>
+        /// <param name="changeValueAbsolute">The absolute impact to
         /// dimension.</param>
-        /// <param name="changeValueRelative">Gets the relative impact to
-        /// dimension (null if not applicable)</param>
+        /// <param name="changeValueRelative">The relative impact to dimension
+        /// (null if not applicable)</param>
         public OperationImpact(string name = default(string), string unit = default(string), double? changeValueAbsolute = default(double?), double? changeValueRelative = default(double?))
         {
             Name = name;

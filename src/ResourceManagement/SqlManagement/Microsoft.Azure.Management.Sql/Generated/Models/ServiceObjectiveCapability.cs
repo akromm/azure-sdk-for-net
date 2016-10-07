@@ -11,7 +11,11 @@ namespace Microsoft.Azure.Management.Sql.Models
     using System.Linq;
 
     /// <summary>
-    /// Represents the Service Objectives capabilities.
+    /// Represents the Service Objectives capabilities. The service objective
+    /// represents the performance level assigned to the database (eg: S0,
+    /// P2, Basic, ...). See
+    /// https://azure.microsoft.com/en-us/documentation/articles/sql-database-service-tiers/
+    /// for more info
     /// </summary>
     public partial class ServiceObjectiveCapability
     {
@@ -23,14 +27,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServiceObjectiveCapability class.
         /// </summary>
-        /// <param name="name">Gets the Service Objective name.</param>
-        /// <param name="status">Gets the status of the Service Objective.
-        /// Possible values include: 'Visible', 'Available', 'Default'</param>
-        /// <param name="id">Gets the unique ID of the Service
-        /// Objective.</param>
-        /// <param name="supportedMaxSizes">Gets the list of supported maximum
+        /// <param name="name">The Service Objective name (Eg: S0, S1,
+        /// S2).</param>
+        /// <param name="status">The status of the Service Objective. Possible
+        /// values include: 'Visible', 'Available', 'Default'</param>
+        /// <param name="id">The unique ID of the Service Objective.</param>
+        /// <param name="supportedMaxSizes">The list of supported maximum
         /// Azure SQL Database sizes for this Service Objective.</param>
-        public ServiceObjectiveCapability(string name = default(string), string status = default(string), string id = default(string), System.Collections.Generic.IList<MaxSizeCapability> supportedMaxSizes = default(System.Collections.Generic.IList<MaxSizeCapability>))
+        public ServiceObjectiveCapability(string name = default(string), CapabilityStatus? status = default(CapabilityStatus?), System.Guid? id = default(System.Guid?), System.Collections.Generic.IList<MaxSizeCapability> supportedMaxSizes = default(System.Collections.Generic.IList<MaxSizeCapability>))
         {
             Name = name;
             Status = status;
@@ -39,7 +43,7 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets the Service Objective name.
+        /// Gets the Service Objective name (Eg: S0, S1, S2).
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
@@ -49,13 +53,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// 'Visible', 'Available', 'Default'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "status")]
-        public string Status { get; private set; }
+        public CapabilityStatus? Status { get; private set; }
 
         /// <summary>
         /// Gets the unique ID of the Service Objective.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
+        public System.Guid? Id { get; private set; }
 
         /// <summary>
         /// Gets the list of supported maximum Azure SQL Database sizes for

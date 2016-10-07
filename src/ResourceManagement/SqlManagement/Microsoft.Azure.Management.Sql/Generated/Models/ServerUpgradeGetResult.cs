@@ -24,10 +24,10 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServerUpgradeGetResult class.
         /// </summary>
-        /// <param name="status">Gets the status of the Azure SQL Server
+        /// <param name="status">The status of the Azure SQL Server
         /// Upgrade.</param>
-        /// <param name="scheduleUpgradeAfterTime">Gets the schedule time of
-        /// the Azure SQL Server Upgrade.</param>
+        /// <param name="scheduleUpgradeAfterTime">The schedule time of the
+        /// Azure SQL Server Upgrade.</param>
         public ServerUpgradeGetResult(string status = default(string), System.DateTime? scheduleUpgradeAfterTime = default(System.DateTime?))
         {
             Status = status;

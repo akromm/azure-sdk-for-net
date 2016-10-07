@@ -31,31 +31,28 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <param name="id">Resource Id</param>
         /// <param name="type">Resource type</param>
         /// <param name="tags">Resource tags</param>
-        /// <param name="databaseName">Gets the database name.</param>
-        /// <param name="endTime">Gets the time the operation finished.</param>
-        /// <param name="errorCode">Gets the error code if available.</param>
-        /// <param name="errorMessage">Gets the error message if
+        /// <param name="databaseName">The database name.</param>
+        /// <param name="endTime">The time the operation finished.</param>
+        /// <param name="errorCode">The error code if available.</param>
+        /// <param name="errorMessage">The error message if available.</param>
+        /// <param name="errorSeverity">The error severity if
         /// available.</param>
-        /// <param name="errorSeverity">Gets the error severity if
+        /// <param name="operation">The operation name.</param>
+        /// <param name="operationId">The unique operation ID.</param>
+        /// <param name="percentComplete">The percentage complete if
         /// available.</param>
-        /// <param name="operation">Gets the operation name.</param>
-        /// <param name="operationId">Gets the unique operation ID.</param>
-        /// <param name="percentComplete">Gets the percentage complete if
-        /// available.</param>
-        /// <param name="requestedElasticPoolName">Gets the name for the
-        /// Elastic Pool the database is moving into if available.</param>
-        /// <param name="currentElasticPoolName">Gets the name of the current
+        /// <param name="requestedElasticPoolName">The name for the Elastic
+        /// Pool the database is moving into if available.</param>
+        /// <param name="currentElasticPoolName">The name of the current
         /// Elastic Pool the database is in if available.</param>
-        /// <param name="currentServiceObjective">Gets the name of the current
+        /// <param name="currentServiceObjective">The name of the current
         /// service objective if available.</param>
-        /// <param name="requestedServiceObjective">Gets the name of the
-        /// requested service objective if available.</param>
-        /// <param name="serverName">Gets the name of the Azure SQL Server the
+        /// <param name="requestedServiceObjective">The name of the requested
+        /// service objective if available.</param>
+        /// <param name="serverName">The name of the Azure SQL Server the
         /// Elastic Pool is in.</param>
-        /// <param name="startTime">Gets the time the operation
-        /// started.</param>
-        /// <param name="state">Gets the current state of the
-        /// operation.</param>
+        /// <param name="startTime">The time the operation started.</param>
+        /// <param name="state">The current state of the operation.</param>
         public ElasticPoolDatabaseActivity(string location, string name = default(string), string id = default(string), string type = default(string), System.Collections.Generic.IDictionary<string, string> tags = default(System.Collections.Generic.IDictionary<string, string>), string databaseName = default(string), System.DateTime? endTime = default(System.DateTime?), int? errorCode = default(int?), string errorMessage = default(string), int? errorSeverity = default(int?), string operation = default(string), string operationId = default(string), int? percentComplete = default(int?), string requestedElasticPoolName = default(string), string currentElasticPoolName = default(string), string currentServiceObjective = default(string), string requestedServiceObjective = default(string), string serverName = default(string), System.DateTime? startTime = default(System.DateTime?), string state = default(string))
             : base(location, name, id, type, tags)
         {

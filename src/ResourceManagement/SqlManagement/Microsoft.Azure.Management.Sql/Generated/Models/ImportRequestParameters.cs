@@ -23,28 +23,26 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ImportRequestParameters class.
         /// </summary>
-        /// <param name="storageKeyType">Gets or sets the type of the storage
-        /// key to use. Valid values are StorageAccessKey and
-        /// SharedAccessKey.</param>
-        /// <param name="storageKey">Gets or sets the storage key to
-        /// use.</param>
-        /// <param name="storageUri">Gets or sets the storage uri to
-        /// use.</param>
-        /// <param name="administratorLogin">Gets or sets the name of the SQL
+        /// <param name="storageKeyType">The type of the storage key to use.
+        /// Possible values include: 'StorageAccessKey',
+        /// 'SharedAccessKey'</param>
+        /// <param name="storageKey">The storage key to use.</param>
+        /// <param name="storageUri">The storage uri to use.</param>
+        /// <param name="administratorLogin">The name of the SQL
         /// administrator.</param>
-        /// <param name="administratorLoginPassword">Gets or sets the password
-        /// of the SQL administrator.</param>
-        /// <param name="authenticationType">Gets or sets the authentication
-        /// type.</param>
-        /// <param name="databaseName">Gets or sets the name of the Azure SQL
-        /// database to import.</param>
-        /// <param name="edition">Gets or sets the edition for the Azure Sql
-        /// Database being created.</param>
-        /// <param name="serviceObjectiveName">Gets or sets the name of the
-        /// service objective to assign to the Azure SQL Database.</param>
-        /// <param name="maxSizeBytes">Gets or sets the maximum size for the
-        /// newly imported database.</param>
-        public ImportRequestParameters(string storageKeyType = default(string), string storageKey = default(string), string storageUri = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string), string authenticationType = default(string), string databaseName = default(string), string edition = default(string), string serviceObjectiveName = default(string), string maxSizeBytes = default(string))
+        /// <param name="administratorLoginPassword">The password of the SQL
+        /// administrator.</param>
+        /// <param name="authenticationType">The authentication type.</param>
+        /// <param name="databaseName">The name of the Azure SQL database to
+        /// import.</param>
+        /// <param name="edition">The edition for the Azure Sql Database being
+        /// created. Possible values include: 'Basic', 'Standard',
+        /// 'Premium'</param>
+        /// <param name="serviceObjectiveName">The name of the service
+        /// objective to assign to the Azure SQL Database.</param>
+        /// <param name="maxSizeBytes">The maximum size for the newly imported
+        /// database.</param>
+        public ImportRequestParameters(StorageKeyType? storageKeyType = default(StorageKeyType?), string storageKey = default(string), string storageUri = default(string), string administratorLogin = default(string), string administratorLoginPassword = default(string), string authenticationType = default(string), string databaseName = default(string), ImportExportDatabaseEditions? edition = default(ImportExportDatabaseEditions?), string serviceObjectiveName = default(string), string maxSizeBytes = default(string))
             : base(storageKeyType, storageKey, storageUri, administratorLogin, administratorLoginPassword, authenticationType)
         {
             DatabaseName = databaseName;
@@ -61,9 +59,10 @@ namespace Microsoft.Azure.Management.Sql.Models
 
         /// <summary>
         /// Gets or sets the edition for the Azure Sql Database being created.
+        /// Possible values include: 'Basic', 'Standard', 'Premium'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "edition")]
-        public string Edition { get; set; }
+        public ImportExportDatabaseEditions? Edition { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the service objective to assign to the

@@ -23,15 +23,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the MaxSizeCapability class.
         /// </summary>
-        /// <param name="limit">Gets the maximum size of the database (see
-        /// 'unit' for the units).</param>
-        /// <param name="unit">Gets the units that the limit is expressed in.
+        /// <param name="limit">The maximum size of the database (see 'unit'
+        /// for the units).</param>
+        /// <param name="unit">The units that the limit is expressed in.
         /// Possible values include: 'Megabytes', 'Gigabytes', 'Terabytes',
         /// 'Petabytes'</param>
-        /// <param name="status">Gets the status of the maximum size
-        /// capability. Possible values include: 'Visible', 'Available',
-        /// 'Default'</param>
-        public MaxSizeCapability(int? limit = default(int?), string unit = default(string), string status = default(string))
+        /// <param name="status">The status of the maximum size capability.
+        /// Possible values include: 'Visible', 'Available', 'Default'</param>
+        public MaxSizeCapability(int? limit = default(int?), MaxSizeUnits? unit = default(MaxSizeUnits?), CapabilityStatus? status = default(CapabilityStatus?))
         {
             Limit = limit;
             Unit = unit;
@@ -49,14 +48,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// include: 'Megabytes', 'Gigabytes', 'Terabytes', 'Petabytes'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "unit")]
-        public string Unit { get; private set; }
+        public MaxSizeUnits? Unit { get; private set; }
 
         /// <summary>
         /// Gets the status of the maximum size capability. Possible values
         /// include: 'Visible', 'Available', 'Default'
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "status")]
-        public string Status { get; private set; }
+        public CapabilityStatus? Status { get; private set; }
 
     }
 }

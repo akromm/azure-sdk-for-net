@@ -25,8 +25,8 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// Initializes a new instance of the ServerUpgradeStartParameters
         /// class.
         /// </summary>
-        /// <param name="serverUpgradeProperties">Gets or sets the properties
-        /// of the Azure SQL Server Upgrade.</param>
+        /// <param name="serverUpgradeProperties">The properties of the Azure
+        /// SQL Server Upgrade.</param>
         public ServerUpgradeStartParameters(ServerUpgradeProperties serverUpgradeProperties)
         {
             ServerUpgradeProperties = serverUpgradeProperties;

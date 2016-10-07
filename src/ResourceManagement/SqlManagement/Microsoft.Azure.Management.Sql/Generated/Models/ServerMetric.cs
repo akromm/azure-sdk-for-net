@@ -23,17 +23,13 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ServerMetric class.
         /// </summary>
-        /// <param name="resourceName">Gets or sets the name of the
-        /// resource.</param>
-        /// <param name="displayName">Gets or sets the metric display
-        /// name.</param>
-        /// <param name="currentValue">Gets or sets the current value of the
+        /// <param name="resourceName">The name of the resource.</param>
+        /// <param name="displayName">The metric display name.</param>
+        /// <param name="currentValue">The current value of the metric.</param>
+        /// <param name="limit">The current limit of the metric.</param>
+        /// <param name="unit">The units of the metric.</param>
+        /// <param name="nextResetTime">The next reset time for the
         /// metric.</param>
-        /// <param name="limit">Gets or sets the current limit of the
-        /// metric.</param>
-        /// <param name="unit">Gets or sets the units of the metric.</param>
-        /// <param name="nextResetTime">Gets or sets the next reset time for
-        /// the metric.</param>
         public ServerMetric(string resourceName = default(string), string displayName = default(string), double? currentValue = default(double?), double? limit = default(double?), string unit = default(string), System.DateTime? nextResetTime = default(System.DateTime?))
         {
             ResourceName = resourceName;
@@ -45,37 +41,37 @@ namespace Microsoft.Azure.Management.Sql.Models
         }
 
         /// <summary>
-        /// Gets or sets the name of the resource.
+        /// Gets the name of the resource.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "resourceName")]
         public string ResourceName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the metric display name.
+        /// Gets the metric display name.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; private set; }
 
         /// <summary>
-        /// Gets or sets the current value of the metric.
+        /// Gets the current value of the metric.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "currentValue")]
         public double? CurrentValue { get; private set; }
 
         /// <summary>
-        /// Gets or sets the current limit of the metric.
+        /// Gets the current limit of the metric.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "limit")]
         public double? Limit { get; private set; }
 
         /// <summary>
-        /// Gets or sets the units of the metric.
+        /// Gets the units of the metric.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "unit")]
         public string Unit { get; private set; }
 
         /// <summary>
-        /// Gets or sets the next reset time for the metric.
+        /// Gets the next reset time for the metric.
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "nextResetTime")]
         public System.DateTime? NextResetTime { get; private set; }

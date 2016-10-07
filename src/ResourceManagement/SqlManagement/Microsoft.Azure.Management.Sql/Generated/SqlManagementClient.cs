@@ -39,9 +39,8 @@ namespace Microsoft.Azure.Management.Sql
         public Microsoft.Rest.ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Gets subscription credentials which uniquely identify Microsoft Azure
-        /// subscription. The subscription ID forms part of the URI for every service
-        /// call.
+        /// The subscription credentials which uniquely identify Microsoft Azure
+        /// subscription.
         /// </summary>
         public System.Guid SubscriptionId { get; set; }
 
@@ -68,9 +67,34 @@ namespace Microsoft.Azure.Management.Sql
         public virtual IDatabasesOperations Databases { get; private set; }
 
         /// <summary>
-        /// Gets the IEngineAuditRecordsOperations.
+        /// Gets the IDatabaseAdvisorsOperations.
         /// </summary>
-        public virtual IEngineAuditRecordsOperations EngineAuditRecords { get; private set; }
+        public virtual IDatabaseAdvisorsOperations DatabaseAdvisors { get; private set; }
+
+        /// <summary>
+        /// Gets the IDatabaseRecommendedActionsOperations.
+        /// </summary>
+        public virtual IDatabaseRecommendedActionsOperations DatabaseRecommendedActions { get; private set; }
+
+        /// <summary>
+        /// Gets the IElasticPoolAdvisorsOperations.
+        /// </summary>
+        public virtual IElasticPoolAdvisorsOperations ElasticPoolAdvisors { get; private set; }
+
+        /// <summary>
+        /// Gets the IElasticPoolRecommendedActionsOperations.
+        /// </summary>
+        public virtual IElasticPoolRecommendedActionsOperations ElasticPoolRecommendedActions { get; private set; }
+
+        /// <summary>
+        /// Gets the IServerAdvisorsOperations.
+        /// </summary>
+        public virtual IServerAdvisorsOperations ServerAdvisors { get; private set; }
+
+        /// <summary>
+        /// Gets the IServerRecommendedActionsOperations.
+        /// </summary>
+        public virtual IServerRecommendedActionsOperations ServerRecommendedActions { get; private set; }
 
         /// <summary>
         /// Gets the IServersOperations.
@@ -88,9 +112,9 @@ namespace Microsoft.Azure.Management.Sql
         public virtual IRecommendedElasticPoolsOperations RecommendedElasticPools { get; private set; }
 
         /// <summary>
-        /// Gets the IAuditingPolicyOperations.
+        /// Gets the IAuditingPoliciesOperations.
         /// </summary>
-        public virtual IAuditingPolicyOperations AuditingPolicy { get; private set; }
+        public virtual IAuditingPoliciesOperations AuditingPolicies { get; private set; }
 
         /// <summary>
         /// Gets the IDataMaskingOperations.
@@ -304,11 +328,16 @@ namespace Microsoft.Azure.Management.Sql
         private void Initialize()
         {
             this.Databases = new DatabasesOperations(this);
-            this.EngineAuditRecords = new EngineAuditRecordsOperations(this);
+            this.DatabaseAdvisors = new DatabaseAdvisorsOperations(this);
+            this.DatabaseRecommendedActions = new DatabaseRecommendedActionsOperations(this);
+            this.ElasticPoolAdvisors = new ElasticPoolAdvisorsOperations(this);
+            this.ElasticPoolRecommendedActions = new ElasticPoolRecommendedActionsOperations(this);
+            this.ServerAdvisors = new ServerAdvisorsOperations(this);
+            this.ServerRecommendedActions = new ServerRecommendedActionsOperations(this);
             this.Servers = new ServersOperations(this);
             this.ElasticPools = new ElasticPoolsOperations(this);
             this.RecommendedElasticPools = new RecommendedElasticPoolsOperations(this);
-            this.AuditingPolicy = new AuditingPolicyOperations(this);
+            this.AuditingPolicies = new AuditingPoliciesOperations(this);
             this.DataMasking = new DataMaskingOperations(this);
             this.Capabilities = new CapabilitiesOperations(this);
             this.BaseUri = new System.Uri("https://management.azure.com");

@@ -10,6 +10,9 @@ namespace Microsoft.Azure.Management.Sql.Models
 {
     using System.Linq;
 
+    /// <summary>
+    /// Contains the information necessary to perform a resource move (rename).
+    /// </summary>
     public partial class ResourceMoveDefinition
     {
         /// <summary>
@@ -20,12 +23,14 @@ namespace Microsoft.Azure.Management.Sql.Models
         /// <summary>
         /// Initializes a new instance of the ResourceMoveDefinition class.
         /// </summary>
+        /// <param name="id">The target ID for the resource</param>
         public ResourceMoveDefinition(string id = default(string))
         {
             Id = id;
         }
 
         /// <summary>
+        /// Gets or sets the target ID for the resource
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
